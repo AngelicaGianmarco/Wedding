@@ -6,189 +6,111 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { width: 100%; height: 100%; overflow: hidden; background: var(--cave-dark); font-family: 'IM Fell English', Georgia, serif; }
+html, body { width: 100%; height: 100%; background: #ffffff; font-family: 'IM Fell English', Georgia, serif; }
 
-/* SCHERMATA DI INGRESSO (PORTA DI MORIA) */
+/* ════════════════ TRANSIZIONE FUMOSA / SFONDO DI BLOCCO ════════════════ */
 #gate-screen {
   position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999;
-  opacity: 1; transition: opacity 1.2s ease-in-out; cursor: pointer; background: var(--cave-dark);
+  background: var(--cave-dark);
+  opacity: 1; filter: blur(0px);
+  transition: opacity 2.5s cubic-bezier(0.4, 0, 0.2, 1), filter 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 }
-#gate-screen.fade-out { opacity: 0; pointer-events: none !important; }
+/* Dissolvenza calma e nebbiosa */
+#gate-screen.fade-out { opacity: 0; filter: blur(15px); pointer-events: none !important; }
 
 .moria-bg-image {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; z-index: 1;
 }
 .dark-overlay {
-  position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 45%, rgba(3,3,5,0.95) 100%); z-index: 2;
+  position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 40%, rgba(3,3,5,0.95) 100%); z-index: 2;
 }
 .gate-content-box { position: relative; z-index: 3; margin-top: auto; margin-bottom: 7vh; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; width: 100%; pointer-events: none; }
 
-.shake-active { animation: earthquake 0.12s ease-in-out infinite; }
-@keyframes earthquake {
-  0% { transform: translate(0, 0); }
-  25% { transform: translate(-3px, 2px); }
-  50% { transform: translate(3px, -2px); }
-  75% { transform: translate(-2px, -1px); }
-  100% { transform: translate(2px, 1px); }
-}
 .touch-hint-box { display: flex; flex-direction: column; align-items: center; gap: 8px; }
 .animated-ring { width: 46px; height: 46px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.6); animation: pulseRing 1.8s infinite; }
 @keyframes pulseRing { 0%,100%{transform:scale(1);opacity:0.6;} 50%{transform:scale(1.3);opacity:0.1;} }
 .hint-label-text { font-family:'Cinzel',serif; font-size:11px; letter-spacing:3px; color: #ffffff; text-shadow: 0 2px 5px rgba(0,0,0,0.95); }
 .gate-quote { font-style:italic; font-size: 18px; color: #eaeaea; text-shadow: 0 2px 6px rgba(0,0,0,1); }
 
-/* CONTENITORE GENERALE INVITO */
-#invitation-screen { position: absolute; inset: 0; overflow-y: auto; overflow-x: hidden; z-index: 10; background: #ffffff; display: block; }
-#invitation-screen.hidden-init { display: none !important; }
+/* CONTENITORE PRINCIPALE INVITO (Sotto alla porta) */
+#invitation-screen { 
+  position: relative; width: 100%; height: 100vh; overflow-y: scroll; overflow-x: hidden; z-index: 10; background: #ffffff; 
+  -webkit-overflow-scrolling: touch;
+}
 
 .inv-page { 
-  width: 100%; 
-  min-height: 100vh; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  background: #ffffff; 
-  padding: 40px 18px; 
+  width: 100%; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #ffffff; padding: 50px 16px; 
 }
 .page-two-separator { border-top: 1px solid #ebdcc5; }
 
-/* ════════════════ CORNICE CHE RACCHIUDE IL TESTO ALL'INTERNO ════════════════ */
+/* ════════════════ STRUTTURA CORNICE RIGIDA INDISTRUTTIBILE ════════════════ */
 .elvish-box-frame {
   position: relative;
-  width: min(460px, 100%);
-  padding: 65px 35px;
+  width: min(450px, 100%);
+  
+  /* Margini interni protettivi: spingono il testo verso il centro impedendo di uscire */
+  padding: 70px 40px; 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 25px;
   text-align: center;
   
-  /* Applica la tua immagine cornice-elfica come bordo contenitivo di sfondo */
-  background-image: url('cornice-elfica.png');
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
+  /* Utilizza l'immagine come vero bordo flessibile della scatola di testo */
+  border: 24px solid transparent;
+  border-image: url('cornice-elfica.png') 60 round;
+  background: #ffffff;
 }
 
-/* FORMATTAZIONE DI TUTTI I TESTI BILANCIATI ED INGRANDITI */
+/* FORMATTAZIONE SCRITTE PROPORZIONATE ED ELEGANTI */
 .name-script { font-family: 'Great Vibes', cursive; color: var(--ink-dark); font-weight: 400; }
-.name-one, .name-two { font-size: clamp(48px, 10vw, 70px); line-height: 1.1; }
-.ampersand-large { font-family: 'IM Fell English', serif; font-size: 40px; margin: -10px 0; color: var(--green-theme); }
-.announce-text { font-family: 'IM Fell English', serif; font-style: italic; font-size: 17px; color: var(--ink-muted); }
+.name-one, .name-two { font-size: clamp(44px, 9.5vw, 64px); line-height: 1.1; }
+.ampersand-large { font-family: 'IM Fell English', serif; font-size: 38px; margin: -10px 0; color: var(--green-theme); }
+.announce-text { font-family: 'IM Fell English', serif; font-style: italic; font-size: 16.5px; color: var(--ink-muted); }
 
 .date-block { display: flex; flex-direction: column; align-items: center; margin: 4px 0; }
-.month-text { font-family: 'Dancing Script', cursive; font-size: 38px; font-weight: 700; color: var(--ink-dark); }
+.month-text { font-family: 'Dancing Script', cursive; font-size: 36px; font-weight: 700; color: var(--ink-dark); }
 .date-row { display: flex; align-items: baseline; gap: 12px; }
-.d-label { font-family: 'IM Fell English', serif; font-style: italic; font-size: 22px; color: var(--ink-muted); }
-.d-num { font-family: 'Dancing Script', cursive; font-size: 58px; font-weight: 700; color: var(--ink-dark); line-height: 1; }
-.date-swoosh { width: 160px; height: 10px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10'%3E%3Cpath d='M0,5 Q100,0 200,5' fill='none' stroke='%236aab6a' stroke-width='2.5'/%3E%3C/svg%3E") center/contain no-repeat; margin-top: 4px; }
+.d-label { font-family: 'IM Fell English', serif; font-style: italic; font-size: 20px; color: var(--ink-muted); }
+.d-num { font-family: 'Dancing Script', cursive; font-size: 56px; font-weight: 700; color: var(--ink-dark); line-height: 1; }
+.date-swoosh { width: 150px; height: 10px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10'%3E%3Cpath d='M0,5 Q100,0 200,5' fill='none' stroke='%236aab6a' stroke-width='2.5'/%3E%3C/svg%3E") center/contain no-repeat; margin-top: 4px; }
 
-.ceremony-info p, .presso-label, .address-text p { font-family: 'Dancing Script', cursive; font-size: 22px; color: var(--ink-muted); font-weight: 600; }
-.location-name { font-family: 'Dancing Script', cursive; font-size: 40px; font-weight: 700; color: var(--ink-dark); margin: 2px 0; }
+.ceremony-info p, .presso-label, .address-text p { font-family: 'Dancing Script', cursive; font-size: 21px; color: var(--ink-muted); font-weight: 600; }
+.location-name { font-family: 'Dancing Script', cursive; font-size: 38px; font-weight: 700; color: var(--ink-dark); margin: 2px 0; }
 
-/* ════════════════ TIMELINE STRUTTURATA E PROPORZIONATA (PAG 2) ════════════════ */
-.timeline-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin: 10px 0;
-  text-align: left;
-}
+/* TIMELINE ALLINEATA REALE */
+.timeline-container { width: 100%; display: flex; flex-direction: column; gap: 18px; margin: 8px 0; text-align: left; }
+.tl-item { display: flex; align-items: center; gap: 16px; width: 100%; }
 
-.tl-item {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  width: 100%;
-}
+.tl-icon-wrapper { width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.tl-img-icon { max-width: 100%; max-height: 100%; object-fit: contain; }
 
-/* Ridimensionamento perfetto e calibrato delle icone reali */
-.tl-icon-wrapper {
-  width: 42px;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.tl-img-icon {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
+.tl-details { display: flex; flex-direction: column; justify-content: center; }
+.tl-time { font-family: 'IM Fell English', serif; font-size: 13.5px; font-weight: 700; color: var(--ink-dark); }
+.tl-desc { font-family: 'IM Fell English', serif; font-size: 11.5px; color: var(--ink-muted); line-height: 1.2; }
 
-.tl-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.tl-time {
-  font-family: 'IM Fell English', serif;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--ink-dark);
-  letter-spacing: 0.5px;
-}
-.tl-desc {
-  font-family: 'IM Fell English', serif;
-  font-size: 12px;
-  color: var(--ink-muted);
-  line-height: 1.2;
-}
+.confirm-block { margin: 8px 0; }
+.confirm-block p { font-family: 'Dancing Script', cursive; font-size: 23px; color: var(--ink-dark); font-weight: 700; }
 
-.confirm-block { margin: 10px 0; }
-.confirm-block p { font-family: 'Dancing Script', cursive; font-size: 24px; color: var(--ink-dark); font-weight: 700; }
-
-/* SEZIONE REGALO CON IL VERO CUORE FIORITO */
-.gift-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-  margin: 5px 0;
-}
-.gift-heart-wrapper {
-  width: 75px;
-  height: 75px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.gift-heart-img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-.gift-text-box p {
-  font-family: 'IM Fell English', serif;
-  font-size: 12px;
-  line-height: 1.7;
-  color: var(--ink-muted);
-  text-align: center;
-}
+/* REGALO E CUORE FIORITO */
+.gift-section { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%; margin: 5px 0; }
+.gift-heart-wrapper { width: 70px; height: 70px; display: flex; align-items: center; justify-content: center; }
+.gift-heart-img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.gift-text-box p { font-family: 'IM Fell English', serif; font-size: 11.5px; line-height: 1.65; color: var(--ink-muted); text-align: center; }
 
 .grazie-block { margin-top: -5px; }
-.grazie-script { font-family: 'Great Vibes', cursive; font-size: 46px; color: var(--ink-dark); }
+.grazie-script { font-family: 'Great Vibes', cursive; font-size: 44px; color: var(--ink-dark); }
 
-/* BLOCCO IBAN COMPATTO IN FONDO INDENTATO */
-.iban-block {
-  width: 100%;
-  border-top: 1px solid #ebdcc5;
-  padding-top: 14px;
-  margin-top: 5px;
-}
-.iban-title { font-family: 'Cinzel', serif; font-size: 12px; color: var(--ink-muted); font-weight: 700; }
-.iban-code { font-family: 'IM Fell English', serif; font-size: 15px; color: var(--ink-dark); margin: 4px 0; word-break: break-all; letter-spacing: 0.3px; }
-.iban-name { font-family: 'Cinzel', serif; font-size: 11px; color: var(--ink-muted); }
-
-/* Animazione fluida di comparsa pagine */
-.inv-page { opacity: 0; transform: scale(0.99); animation: fadeInPageEffect 1s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-@keyframes fadeInPageEffect { to { opacity: 1; transform: scale(1); } }
+/* IBAN */
+.iban-block { width: 100%; border-top: 1px solid #ebdcc5; padding-top: 12px; margin-top: 4px; }
+.iban-title { font-family: 'Cinzel', serif; font-size: 11px; color: var(--ink-muted); font-weight: 700; }
+.iban-code { font-family: 'IM Fell English', serif; font-size: 14.5px; color: var(--ink-dark); margin: 4px 0; word-break: break-all; }
+.iban-name { font-family: 'Cinzel', serif; font-size: 10px; color: var(--ink-muted); }
 
 @media (max-width: 480px) {
   .elvish-box-frame {
-    padding: 55px 24px; /* Riduce leggermente i margini sui telefoni stretti per tenere il testo dentro */
+    padding: 55px 20px;
+    border-width: 18px; /* Assottiglia leggermente la cornice su schermi piccolissimi per salvare spazio */
   }
 }
