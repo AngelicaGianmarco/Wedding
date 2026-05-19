@@ -4,23 +4,25 @@
   const gateScreen = document.getElementById('gate-screen');
   const gateImg    = document.getElementById('gate-trigger');
   const invScreen  = document.getElementById('invitation-screen');
-  const particlesContainer = document.getElementById('particles-container');
+  const sparklesContainer = document.getElementById('sparkles-container');
   let hasTriggered = false;
 
-  // GENERATORE AUTOMATICO DI POLVERE DI STELLE ELFICA (Senza file esterni!)
-  function spawnParticles(count = 20) {
+  // GENERATORE AUTOMATICO EFFETTO SPECIALI GLITTER (Polvere di Stelle Elfica)
+  function spawnGlitter(count = 30) {
     for (let i = 0; i < count; i++) {
-      const p = document.createElement('div');
-      p.classList.add('particle');
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
       
-      const size = Math.random() * 4 + 2;
-      p.style.width = `${size}px`;
-      p.style.height = `${size}px`;
-      p.style.left = `${Math.random() * 100}vw`;
-      p.style.animationDelay = `${Math.random() * 7}s`;
-      p.style.animationDuration = `${Math.random() * 5 + 6}s`;
+      const size = Math.random() * 5 + 2; // Dimensioni variabili
+      sparkle.style.width = `${size}px`;
+      sparkle.style.height = `${size}px`;
+      sparkle.style.left = `${Math.random() * 100}vw`;
       
-      particlesContainer.appendChild(p);
+      // Ritardi e velocità casuali per naturalezza fluida
+      sparkle.style.animationDelay = `${Math.random() * 6}s`;
+      sparkle.style.animationDuration = `${Math.random() * 5 + 5}s`;
+      
+      sparklesContainer.appendChild(sparkle);
     }
   }
 
@@ -30,20 +32,19 @@
     
     clearTimeout(globalTimer);
 
-    // Avvia la dissolvenza lenta e fumosa regolata nel CSS
+    // Attiva la transizione fumosa lenta definita nel CSS (2.5 secondi)
     gateScreen.classList.add('fade-out');
 
-    // Sblocca immediatamente l'invito sotto mentre la nebbia sparisce
+    // Rivela l'invito bianco e inietta i glitter magici
     invScreen.classList.remove('hidden-init');
-    spawnParticles(25); // Fa sbucare le lucciole magiche sul fondo dell'invito
+    spawnGlitter(35);
 
-    // Rimuove fisicamente lo schermo protettivo dopo che la sfumatura è completa
     setTimeout(() => {
       gateScreen.style.display = 'none';
-    }, 2000);
+    }, 2500);
   }
 
-  // Intercettazione immediata tocco/clic su tutto lo schermo iniziale
+  // Eventi per intercettare tocchi e clic in modo istantaneo
   gateScreen.addEventListener('click', activateTransition);
   if (gateImg) {
     gateImg.addEventListener('click', function(e) {
@@ -55,7 +56,7 @@
   gateScreen.addEventListener('touchstart', activateTransition, { passive: true });
   gateScreen.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') activateTransition(); });
 
-  // Apertura automatica di emergenza a 10 secondi
+  // Apertura automatica temporizzata a 10 secondi
   const globalTimer = setTimeout(activateTransition, 10000);
 
 })();
