@@ -7,20 +7,19 @@
   const sparklesContainer = document.getElementById('sparkles-container');
   let hasTriggered = false;
 
-  // GENERATORE AUTOMATICO EFFETTO SPECIALI GLITTER (Polvere di Stelle Elfica)
-  function spawnGlitter(count = 30) {
+  // CREATORE PARTICELLE GLITTER (Polvere di Fata)
+  function spawnGlitter(count = 25) {
     for (let i = 0; i < count; i++) {
       const sparkle = document.createElement('div');
       sparkle.classList.add('sparkle');
       
-      const size = Math.random() * 5 + 2; // Dimensioni variabili
+      const size = Math.random() * 4 + 2;
       sparkle.style.width = `${size}px`;
       sparkle.style.height = `${size}px`;
       sparkle.style.left = `${Math.random() * 100}vw`;
       
-      // Ritardi e velocità casuali per naturalezza fluida
       sparkle.style.animationDelay = `${Math.random() * 6}s`;
-      sparkle.style.animationDuration = `${Math.random() * 5 + 5}s`;
+      sparkle.style.animationDuration = `${Math.random() * 4 + 6}s`;
       
       sparklesContainer.appendChild(sparkle);
     }
@@ -32,19 +31,18 @@
     
     clearTimeout(globalTimer);
 
-    // Attiva la transizione fumosa lenta definita nel CSS (2.5 secondi)
+    // Dissolvenza controllata
     gateScreen.classList.add('fade-out');
 
-    // Rivela l'invito bianco e inietta i glitter magici
+    // Rivela l'invito pulito e genera particelle delicate
     invScreen.classList.remove('hidden-init');
-    spawnGlitter(35);
+    spawnGlitter(25);
 
     setTimeout(() => {
       gateScreen.style.display = 'none';
     }, 2500);
   }
 
-  // Eventi per intercettare tocchi e clic in modo istantaneo
   gateScreen.addEventListener('click', activateTransition);
   if (gateImg) {
     gateImg.addEventListener('click', function(e) {
@@ -56,7 +54,6 @@
   gateScreen.addEventListener('touchstart', activateTransition, { passive: true });
   gateScreen.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') activateTransition(); });
 
-  // Apertura automatica temporizzata a 10 secondi
   const globalTimer = setTimeout(activateTransition, 10000);
 
 })();
