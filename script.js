@@ -46,11 +46,11 @@
     clearTimeout(safetyTimer);
 
     // Tremolio dell'Arco
-    //let shakeCount = 0;
-    //const shakeInterval = setInterval(() => {
-      //archContainer.style.transform = `translate(${(Math.random()-.5)*6}px,${(Math.random()-.5)*3}px)`;
-      //if (++shakeCount > 10) { clearInterval(shakeInterval); archContainer.style.transform = ''; }
-    //}, 60);
+    let shakeCount = 0;
+    const shakeInterval = setInterval(() => {
+      archContainer.style.transform = `translate(${(Math.random()-.5)*6}px,${(Math.random()-.5)*3}px)`;
+      if (++shakeCount > 10) { clearInterval(shakeInterval); archContainer.style.transform = ''; }
+    }, 60);
 
     // Apertura Ante
     doorEl.classList.add('open');
