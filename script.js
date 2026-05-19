@@ -2,6 +2,7 @@
   'use strict';
 
   const gateScreen = document.getElementById('gate-screen');
+  const gateImg    = document.getElementById('gate-trigger');
   const invScreen  = document.getElementById('invitation-screen');
   let hasTriggered = false;
 
@@ -9,35 +10,39 @@
     if (hasTriggered) return;
     hasTriggered = true;
     
-    // Ferma l'autostart automatico se l'utente ha cliccato da solo
+    // Ferma l'autostart se l'utente interagisce prima
     clearTimeout(globalTimer);
 
-    // 1. EFFETTO TERREMOTO (Fa tremare lo schermo)
+    // 1. TERREMOTO COMPLESSIVO (Applica la vibrazione visiva)
     gateScreen.classList.add('shake-active');
 
-    // 2. AVVIO DISSOLVENZA DOPO IL SUSSULTO
+    // 2. TRANSIZIONE IN DISSOLVENZA DOPO LO SQUASSAMENTO
     setTimeout(() => {
       gateScreen.classList.remove('shake-active');
       gateScreen.classList.add('fade-out');
 
-      // 3. RIMOZIONE FINALE E SBLOCCO SCROLL INVITO
+      // 3. MOSTRA L'INVITO SBLOCCANDO LA PAGINA
       setTimeout(() => {
         gateScreen.style.display = 'none';
         
-        // Rende visibile l'invito reale sotto
         invScreen.classList.remove('hidden-init');
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = 'auto'; // Ripristina lo scorrimento
         window.scrollTo(0, 0);
-      }, 1200); // durata della dissolvenza fluida
-    }, 500); // durata del terremoto
+      }, 1200); // durata dissolvenza fluida
+    }, 500); // durata sottomissione scossa
   }
 
-  // Intercetta QUALSIASI tipo di tocco o clic su schermo intero
+  // Monitoraggio totale del tocco sia su immagine che su intero schermo di blocco
   gateScreen.addEventListener('click', activateTransition);
+  gateImg.addEventListener('click', function(e) {
+    e.stopPropagation(); // previene conflitti
+    activateTransition();
+  });
+  
   gateScreen.addEventListener('touchstart', activateTransition, { passive: true });
   gateScreen.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') activateTransition(); });
 
-  // APERTURA AUTOMATICA DOPO 10 SECONDI (Se l'utente non fa nulla)
+  // APERTURA AUTOMATICA DI EMERGENZA (10 secondi)
   const globalTimer = setTimeout(activateTransition, 10000);
 
 })();
