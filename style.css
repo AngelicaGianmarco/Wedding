@@ -75,43 +75,35 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--dark
 .inv-page { width: 100%; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 50px 16px; background: transparent; }
 
 /* CORNICE INTRECCIATA VERDE */
-.elvish-grand-master-frame {
-  position: relative;
-  width: min(480px, 100%);
-  margin: 0 auto;
-  padding: 80px 30px;
-  background: var(--white);
-  /* Cornice più intrecciata usando bordi multipli e ombre */
-  border: 4px solid var(--green-forest);
-  outline: 12px double var(--green-forest);
-  outline-offset: -20px;
-  box-shadow: 
-    0 0 0 8px var(--white),
-    0 0 0 10px var(--gold-rich),
-    0 20px 50px rgba(20,53,17,0.15);
-  border-radius: 40px;
-  align-items: center
+.elvish-braided-luxury-frame {
+  position: relative; width: min(470px, 100%); padding: 65px 25px; background: var(--white);
+  border: 12px double var(--green-forest); box-shadow: 0 20px 50px rgba(20,53,17,0.08);
+  margin: 15px 0; border-radius: 35px;
 }
 
-.inv-section { display: flex; flex-direction: column; align-items: center; gap: 35px; width: 100%; margin-bottom: 60px; }
+.page-content { display: flex; flex-direction: column; align-items: center; gap: 30px; text-align: center; width: 100%; }
 
 /* NOMI SPOSI MAESTOSI */
+.grand-names-wrap { width: 100%; margin-bottom: 5px; }
 .giant-name {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(48px, 12vw, 68px); /* Ridotto leggermente */
-  font-weight: 400; /* Più sottile */
-  color: var(--ink-black);
-  line-height: 0.9;
-  background: linear-gradient(135deg, var(--ink-black) 30%, var(--green-forest) 70%, var(--gold-rich) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-family: 'Great Vibes', cursive; font-size: clamp(58px, 15vw, 84px); color: var(--ink-black); line-height: 0.85;
+  background: linear-gradient(135deg, var(--ink-black) 40%, var(--green-forest) 75%, var(--gold-rich) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
-.elegant-ampersand { font-family: 'Cinzel', serif; font-size: 30px; color: var(--gold-rich); margin: 5px 0; align-items: center}
+.elegant-ampersand { font-family: 'Great Vibes', cursive; font-size: 55px; color: var(--gold-rich); margin: -5px 0; }
+.announce-text { font-family: 'IM Fell English', serif; font-style: italic; font-size: 17.5px; color: var(--ink-gray); letter-spacing: 0.3px; }
 
 .date-block { display: flex; flex-direction: column; align-items: center; width: 100%; }
-.month-text { font-family: 'Dancing Script', cursive; font-size: 36px; font-weight: 700; color: var(--ink-black); }
-.d-num { font-family: 'Dancing Script', cursive; font-size: 60px; font-weight: 700; color: var(--ink-black); }
-.braid-divider-gold { width: 160px; height: 14px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20'%3E%3Cpath d='M0,10 Q25,0 50,10 T100,10 T150,10 T200,10 M0,10 Q25,20 50,10 T100,10 T150,10 T200,10' fill='none' stroke='%23d4af37' stroke-width='2'/%3E%3C/svg%3E") center/contain no-repeat; margin: 15px auto; }
+.month-text { font-family: 'Dancing Script', cursive; font-size: 40px; font-weight: 700; color: var(--ink-black); }
+.date-row { display: flex; align-items: baseline; gap: 14px; }
+.d-label { font-family: 'IM Fell English', serif; font-style: italic; font-size: 22px; color: var(--ink-gray); }
+.d-num { font-family: 'Dancing Script', cursive; font-size: 68px; font-weight: 700; color: var(--ink-black); line-height: 1; }
+.braid-divider-gold { width: 180px; height: 14px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20'%3E%3Cpath d='M0,10 Q25,0 50,10 T100,10 T150,10 T200,10 M0,10 Q25,20 50,10 T100,10 T150,10 T200,10' fill='none' stroke='%23d4af37' stroke-width='2'/%3E%3C/svg%3E") center/contain no-repeat; margin-top: 10px; }
+
+.ceremony-info p, .presso-label, .address-text p { font-family: 'Dancing Script', cursive; font-size: 25px; color: var(--ink-gray); font-weight: 600; }
+.time-main-label { font-size: 27px !important; color: var(--ink-black) !important; font-weight: 700 !important; }
+.sub-ceremony { color: var(--green-leaf) !important; margin-top: 2px; }
+.location-name { font-family: 'Dancing Script', cursive; font-size: 46px; font-weight: 700; color: var(--ink-black); margin: 4px 0; }
 
 /* ════════════════ TIMELINE INGRANDITA (60px) ════════════════ */
 .horizontal-timeline-section { position: relative; width: 100%; margin: 30px 0; padding: 15px 0; }
