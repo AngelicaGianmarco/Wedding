@@ -2,58 +2,57 @@
   'use strict';
 
   const gateScreen = document.getElementById('gate-screen');
-  const gateImg    = document.getElementById('gate-trigger');
+  const btnEnter   = document.getElementById('btn-enter');
   const invScreen  = document.getElementById('invitation-screen');
-  const sparklesContainer = document.getElementById('sparkles-container');
-  let hasTriggered = false;
+  const glitterContainer = document.getElementById('magic-glitter-container');
+  let isTriggered = false;
 
-  // CREATORE PARTICELLE GLITTER (Polvere di Fata)
-  function spawnGlitter(count = 25) {
-    for (let i = 0; i < count; i++) {
-      const sparkle = document.createElement('div');
-      sparkle.classList.add('sparkle');
+  // GENERATORE AUTOMATICO DI GLITTER DORATI CONTINUI SULLO SFONDO SATINATO
+  function initGlitterShower(amount = 35) {
+    for (let i = 0; i < amount; i++) {
+      const glitter = document.createElement('div');
+      glitter.classList.add('glitter-particle');
       
-      const size = Math.random() * 4 + 2;
-      sparkle.style.width = `${size}px`;
-      sparkle.style.height = `${size}px`;
-      sparkle.style.left = `${Math.random() * 100}vw`;
+      const diameter = Math.random() * 5 + 3; // Dimensioni variabili ed evidenti
+      glitter.style.width = `${diameter}px`;
+      glitter.style.height = `${diameter}px`;
+      glitter.style.left = `${Math.random() * 100}vw`;
       
-      sparkle.style.animationDelay = `${Math.random() * 6}s`;
-      sparkle.style.animationDuration = `${Math.random() * 4 + 6}s`;
+      // Ritardi differenziati per non farli partire tutti insieme
+      glitter.style.animationDelay = `${Math.random() * 6}s`;
+      glitter.style.animationDuration = `${Math.random() * 5 + 5}s`;
       
-      sparklesContainer.appendChild(sparkle);
+      glitterContainer.appendChild(glitter);
     }
   }
 
-  function activateTransition() {
-    if (hasTriggered) return;
-    hasTriggered = true;
-    
-    clearTimeout(globalTimer);
+  function handleTransition() {
+    if (isTriggered) return;
+    isTriggered = true;
 
-    // Dissolvenza controllata
+    // Dissolvenza della nebbia iniziale
     gateScreen.classList.add('fade-out');
 
-    // Rivela l'invito pulito e genera particelle delicate
+    // Mostra istantaneamente l'invito che si trova sotto
     invScreen.classList.remove('hidden-init');
-    spawnGlitter(25);
+    
+    // Attiva la pioggia costante di particelle elfiche sul background satinato
+    initGlitterShower(40);
 
+    // Distrugge il blocco a schermo intero protettivo dopo la fine dell'effetto (2 secondi)
     setTimeout(() => {
       gateScreen.style.display = 'none';
-    }, 2500);
+    }, 2000);
   }
 
-  gateScreen.addEventListener('click', activateTransition);
-  if (gateImg) {
-    gateImg.addEventListener('click', function(e) {
+  // Intercettori di azione su pulsante e su intera area per sicurezza mobile
+  if (btnEnter) {
+    btnEnter.addEventListener('click', function(e) {
       e.stopPropagation();
-      activateTransition();
+      handleTransition();
     });
   }
-  
-  gateScreen.addEventListener('touchstart', activateTransition, { passive: true });
-  gateScreen.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') activateTransition(); });
-
-  const globalTimer = setTimeout(activateTransition, 10000);
+  gateScreen.addEventListener('click', handleTransition);
+  gateScreen.addEventListener('touchstart', handleTransition, { passive: true });
 
 })();
