@@ -15,31 +15,15 @@
     <div class="ground-mist"></div>
 
     <div class="arch-container">
+      <img src="PortaMoria.jpg" alt="Porta di Moria" class="moria-gate-img" />
+      
       <svg class="moria-arch-svg" viewBox="0 0 500 650" xmlns="http://www.w3.org/2000/svg">
-        <path class="glow-line exterior" d="M70,600 L70,280 Q70,50 250,50 Q430,50 430,280 L430,600" fill="none" stroke="#a0c8ff" stroke-width="2.5" />
+        <path class="glow-line exterior" d="M70,600 L70,280 Q70,50 250,50 Q430,50 430,280 L430,600" fill="none" stroke="#a0c8ff" stroke-width="3" />
         <path class="glow-line interior" d="M90,600 L90,285 Q90,75 250,75 Q410,75 410,285 L410,600" fill="none" stroke="#a0c8ff" stroke-width="1.5" />
-        
         <path id="elvish-curve" d="M85,280 Q85,70 250,70 Q415,70 415,280" fill="none" stroke="none"/>
-        <text class="elvish-script-text"><textPath href="#elvish-curve" startOffset="50%" text-anchor="middle">ENNYN DURIN ARAN MORIA PEDO MELLON A MINNO</textPath></text>
-
-        <g class="gate-pillar">
-          <line x1="70" y1="600" x2="70" y2="280" stroke="#a0c8ff" stroke-width="4"/>
-          <line x1="90" y1="600" x2="90" y2="280" stroke="#a0c8ff" stroke-width="2"/>
-        </g>
-        <g class="gate-pillar">
-          <line x1="430" y1="600" x2="430" y2="280" stroke="#a0c8ff" stroke-width="4"/>
-          <line x1="410" y1="600" x2="410" y2="280" stroke="#a0c8ff" stroke-width="2"/>
-        </g>
-
-        <g class="durin-emblem" transform="translate(250,140)">
-          <path d="M-20,10 L-15,-8 L-4,-1 L0,-20 L4,-1 L15,-8 L20,10 Z" fill="none" stroke="#c9a84c" stroke-width="2"/>
-          <circle cx="0" cy="-24" r="2.5" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
-        </g>
-
-        <g class="center-star" transform="translate(250,390)">
-          <path d="M0,-30 L4,-8 L26,-26 L8,-4 L30,0 L8,4 L26,26 L4,8 L0,30 L-4,8 L-26,26 L-8,4 L-30,0 L-8,-4 L-26,-26 L-4,-8 Z" fill="none" stroke="#e8c86a" stroke-width="2"/>
-          <circle cx="0" cy="0" r="3" stroke="#e8c86a" stroke-width="2" fill="none"/>
-        </g>
+        <text class="elvish-script-text">
+          <textPath href="#elvish-curve" startOffset="50%" text-anchor="middle">ENNYN DURIN ARAN MORIA PEDO MELLON A MINNO</textPath>
+        </text>
       </svg>
       
       <div id="door-container">
@@ -50,23 +34,21 @@
 
     <div id="click-hint" class="blink">
       <span class="pulse-ring"></span>
-      <p class="hint-text">Tocca per entrare</p>
+      <p class="hint-text">Parla, amico, ed entra</p>
     </div>
   </div>
+
+  <div id="magic-glitter-container"></div>
 
   <div id="invitation-screen" class="hidden-init">
 
     <div class="inv-page">
-      <div class="elvish-celtic-frame">
-        <div class="celtic-knot top-l"></div>
-        <div class="celtic-knot top-r"></div>
-        <div class="celtic-knot bottom-l"></div>
-        <div class="celtic-knot bottom-r"></div>
-
+      <div class="elvish-braided-luxury-frame">
         <div class="page-content">
+          
           <div class="grand-names-wrap">
             <h1 class="giant-name">Angelica</h1>
-            <div class="ornament-ampersand">&amp;</div>
+            <div class="elegant-ampersand">&amp;</div>
             <h1 class="giant-name">Gianmarco</h1>
           </div>
           
@@ -79,7 +61,7 @@
               <span class="d-num">10</span>
               <span class="d-label">2026</span>
             </div>
-            <div class="elvish-divider-motif"></div>
+            <div class="braid-divider-gold"></div>
           </div>
 
           <div class="ceremony-info">
@@ -99,57 +81,52 @@
     </div>
 
     <div class="inv-page page-two-separator">
-      <div class="elvish-celtic-frame">
-        <div class="celtic-knot top-l"></div>
-        <div class="celtic-knot top-r"></div>
-        <div class="celtic-knot bottom-l"></div>
-        <div class="celtic-knot bottom-r"></div>
-
+      <div class="elvish-braided-luxury-frame">
         <div class="page-content">
 
           <div class="horizontal-timeline-section">
-            <div class="tl-connecting-rope"></div>
+            <div class="tl-connecting-line"></div>
             
-            <div class="tl-items-flex-row">
+            <div class="tl-items-row">
               
-              <div class="tl-giant-item">
-                <span class="tl-time-badge">16:00</span>
-                <div class="tl-circle-white-box">
+              <div class="tl-item">
+                <span class="tl-time">16:00</span>
+                <div class="tl-icon-circle">
                   <img src="icona-cerimonia.png" alt="Cerimonia" />
                 </div>
-                <span class="tl-label-text">Cerimonia</span>
+                <span class="tl-label">Cerimonia</span>
               </div>
 
-              <div class="tl-giant-item">
-                <span class="tl-time-badge">17:00</span>
-                <div class="tl-circle-white-box">
+              <div class="tl-item">
+                <span class="tl-time">17:00</span>
+                <div class="tl-icon-circle">
                   <img src="icona-cocktail.png" alt="Cocktail" />
                 </div>
-                <span class="tl-label-text">Cocktail</span>
+                <span class="tl-label">Cocktail</span>
               </div>
 
-              <div class="tl-giant-item">
-                <span class="tl-time-badge">17:30</span>
-                <div class="tl-circle-white-box">
+              <div class="tl-item">
+                <span class="tl-time">17:30</span>
+                <div class="tl-icon-circle">
                   <img src="icona-cena.png" alt="Cena" />
                 </div>
-                <span class="tl-label-text">Cena</span>
+                <span class="tl-label">Cena</span>
               </div>
 
-              <div class="tl-giant-item">
-                <span class="tl-time-badge">22:30</span>
-                <div class="tl-circle-white-box">
+              <div class="tl-item">
+                <span class="tl-time">22:30</span>
+                <div class="tl-icon-circle">
                   <img src="icona-torta.png" alt="Torta" />
                 </div>
-                <span class="tl-label-text">Torta</span>
+                <span class="tl-label">Torta</span>
               </div>
 
-              <div class="tl-giant-item">
-                <span class="tl-time-badge">23:00</span>
-                <div class="tl-circle-white-box">
+              <div class="tl-item">
+                <span class="tl-time">23:00</span>
+                <div class="tl-icon-circle">
                   <img src="icona-festa.png" alt="Festa" />
                 </div>
-                <span class="tl-label-text">Festa!</span>
+                <span class="tl-label">Festa!</span>
               </div>
 
             </div>
@@ -160,9 +137,9 @@
             <p class="confirm-date">il 15 Settembre</p>
           </div>
 
-          <div class="gift-clean-section">
-            <div class="elvish-divider-motif"></div>
-            <p class="gift-p">
+          <div class="gift-section-clean">
+            <div class="braid-divider-gold"></div>
+            <p class="gift-text">
               IL PENSIERO PIÙ BELLO CHE POSSIATE FARCI È ESSERE PRESENTI AL GRANDE GIORNO. QUI HA INIZIO LA NOSTRA FAVOLA! TUTTAVIA SE DESIDERATE FARCI UN REGALO NE SAREMMO FELICI, COSÌ CHE IL VOSTRO PENSIERO CI AIUTI A REALIZZARE IL NOSTRO VIAGGIO DI VITA INSIEME.
             </p>
           </div>
@@ -171,10 +148,10 @@
             <p class="grazie-script">Grazie di cuore</p>
           </div>
 
-          <div class="iban-card-box">
-            <p class="iban-lbl">IBAN</p>
-            <p class="iban-string">IT52S0306921531100000008567</p>
-            <p class="iban-name">INTESTATO A ANGELICA MASI</p>
+          <div class="iban-box-footer">
+            <p class="iban-label">IBAN</p>
+            <p class="iban-code">IT52S0306921531100000008567</p>
+            <p class="iban-holder">INTESTATO A ANGELICA MASI</p>
           </div>
 
         </div>
