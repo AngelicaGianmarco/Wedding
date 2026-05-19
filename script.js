@@ -3,7 +3,6 @@
 
   const gateScreen = document.getElementById('gate-screen');
   const gateImg    = document.getElementById('gate-trigger');
-  const invScreen  = document.getElementById('invitation-screen');
   let hasTriggered = false;
 
   function activateTransition() {
@@ -12,25 +11,16 @@
     
     clearTimeout(globalTimer);
 
-    // 1. EFFETTO TERREMOTO PORTA
-    gateScreen.classList.add('shake-active');
+    // Fa partire la dissolvenza lenta e fumosa da CSS
+    gateScreen.classList.add('fade-out');
 
-    // 2. AVVIO DISSOLVENZA DOPO IL SUSSULTO
+    // Al termine esatto dei 2.5 secondi rimuove lo schermo di blocco completamente
     setTimeout(() => {
-      gateScreen.classList.remove('shake-active');
-      gateScreen.classList.add('fade-out');
-
-      // 3. APERTURA INVITO SOTTOSTANTE
-      setTimeout(() => {
-        gateScreen.style.display = 'none';
-        invScreen.classList.remove('hidden-init');
-        document.body.style.overflow = 'auto'; // Sblocca scroll verticale dell'invito
-        window.scrollTo(0, 0);
-      }, 1200);
-    }, 500);
+      gateScreen.style.display = 'none';
+    }, 2500);
   }
 
-  // Intercettazione sicura di clic e touch
+  // Intercetta clic ovunque
   gateScreen.addEventListener('click', activateTransition);
   if (gateImg) {
     gateImg.addEventListener('click', function(e) {
@@ -42,7 +32,7 @@
   gateScreen.addEventListener('touchstart', activateTransition, { passive: true });
   gateScreen.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') activateTransition(); });
 
-  // Fallback di apertura automatica a 10 secondi
+  // Apertura automatica dopo 10 secondi se non viene fatto clic
   const globalTimer = setTimeout(activateTransition, 10000);
 
 })();
