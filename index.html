@@ -6,39 +6,49 @@
   <title>Angelica &amp; Gianmarco — 10 Ottobre 2026</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=IM+Fell+English:ital@0;1&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=IM+Fell+English:ital@0;1&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <div id="magic-glitter-container"></div>
-
   <div id="gate-screen">
-    <img src="PortaMoria.jpg" alt="Porta di Moria" class="moria-bg-image" id="gate-trigger" />
-    <div class="dark-overlay"></div>
+    <canvas id=\"stars-canvas\"></canvas>
+    <div class="ground-mist"></div>
 
-    <div class="gate-content-box">
-      <div class="touch-hint-box">
-        <span class="animated-ring"></span>
-        <span class="hint-label-text">Tocca per entrare</span>
+    <div class="arch-wrapper">
+      <svg class="moria-arch" viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path class="arch-line" d="M50,580 L50,260 Q50,60 250,60 Q450,60 450,260 L450,580" fill="none" stroke="#a0c8ff" stroke-width="2.5" stroke-dasharray="2000" stroke-dashoffset="2000" />
+      </svg>
+      
+      <div id="door-container">
+        <div class="door left-door"></div>
+        <div class="door right-door"></div>
       </div>
-      <p class="gate-quote"><em>"Parla, Amico, ed Entra"</em></p>
+    </div>
+
+    <div id="click-hint" class="blink">
+      <span class="ring-touch"></span>
+      <p class="hint-text">Parla, amico, ed entra</p>
     </div>
   </div>
 
-  <div id="invitation-screen" class="hidden-init">
+  <div id="invitation-screen" class="hidden">
 
-    <div class="inv-page">
-      <div class="elvish-celtic-frame">
-        <div class="elvish-knot top-l"><span></span><span></span></div>
-        <div class="elvish-knot top-r"><span></span><span></span></div>
-        <div class="elvish-knot bottom-l"><span></span><span></span></div>
-        <div class="elvish-knot bottom-r"><span></span><span></span></div>
+    <div class="inv-page page-one">
+      <div class="elvish-braided-frame">
+        <div class="elvish-corner-knot top-l"><span></span></div>
+        <div class="elvish-corner-knot top-r"><span></span></div>
+        <div class="elvish-corner-knot bottom-l"><span></span></div>
+        <div class="elvish-corner-knot bottom-r"><span></span></div>
 
         <div class="page-content">
           <div class="grand-names-wrap">
-            <h1 class="giant-name">Angelica</h1>
-            <div class="ornament-ampersand">&amp;</div>
-            <h1 class="giant-name">Gianmarco</h1>
+            <h1 class="giant-name">
+              <span class="drop-cap">A</span>ngelica
+            </h1>
+            <div class="ornament-ampersand">༺✿༻</div>
+            <h1 class="giant-name">
+              <span class="drop-cap">G</span>ianmarco
+            </h1>
           </div>
           
           <p class="announce-text">annunciano con gioia il loro matrimonio</p>
@@ -50,7 +60,7 @@
               <span class="d-num">10</span>
               <span class="d-label">2026</span>
             </div>
-            <div class="elvish-braid-divider"></div>
+            <div class="elvish-divider-line"></div>
           </div>
 
           <div class="ceremony-info">
@@ -69,12 +79,12 @@
       </div>
     </div>
 
-    <div class="inv-page page-two-separator">
-      <div class="elvish-celtic-frame">
-        <div class="elvish-knot top-l"><span></span><span></span></div>
-        <div class="elvish-knot top-r"><span></span><span></span></div>
-        <div class="elvish-knot bottom-l"><span></span><span></span></div>
-        <div class="elvish-knot bottom-r"><span></span><span></span></div>
+    <div class="inv-page page-two">
+      <div class="elvish-braided-frame">
+        <div class="elvish-corner-knot top-l"><span></span></div>
+        <div class="elvish-corner-knot top-r"><span></span></div>
+        <div class="elvish-corner-knot bottom-l"><span></span></div>
+        <div class="elvish-corner-knot bottom-r"><span></span></div>
 
         <div class="page-content">
 
@@ -132,6 +142,27 @@
           </div>
 
           <div class="gift-clean-section">
-            <div class="elvish-braid-divider"></div>
+            <div class="elvish-divider-line"></div>
             <p class="gift-p">
-              IL PENSIERO PIÙ BELLO CHE POSSIATE FARCI È ESSERE PRESENTI AL GRANDE GIORNO. QUI HA INIZIO LA NOSTRA FAVOLA! TUTTAVIA SE DESIDERATE FARCI UN REGALO NE SAREMMO FELICI, COS
+              IL PENSIERO PIÙ BELLO CHE POSSIATE FARCI È ESSERE PRESENTI AL GRANDE GIORNO. QUI HA INIZIO LA NOSTRA FAVOLA! TUTTAVIA SE DESIDERATE FARCI UN REGALO NE SAREMMO FELICI, COSÌ CHE IL VOSTRO PENSIERO CI AIUTI A REALIZZARE IL NOSTRO VIAGGIO DI VITA INSIEME.
+            </p>
+          </div>
+
+          <div class="grazie-block">
+            <p class="grazie-script">Grazie di cuore</p>
+          </div>
+
+          <div class="iban-card-box">
+            <p class="iban-lbl">IBAN</p>
+            <p class="iban-string">IT52S0306921531100000008567</p>
+            <p class="iban-owner">INTESTATO A ANGELICA MASI</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
