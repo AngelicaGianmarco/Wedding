@@ -11,7 +11,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { width: 100%; height: 100%; background: var(--pure-white); font-family: 'IM Fell English', Georgia, serif; }
 
-/* ════════════════ SCHERMATA INIZIALE PORTA DI MORIA ════════════════ */
+/* ════════════════ PORTA DI MORIA INITIAL SCREEN ════════════════ */
 #gate-screen {
   position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999;
   background: var(--cave-dark); opacity: 1; filter: blur(0px);
@@ -30,17 +30,17 @@ html, body { width: 100%; height: 100%; background: var(--pure-white); font-fami
 .hint-label-text { font-family:'Cinzel',serif; font-size:11px; letter-spacing:3px; color: #ffffff; text-shadow: 0 2px 5px rgba(0,0,0,0.95); }
 .gate-quote { font-style:italic; font-size: 18px; color: #eaeaea; text-shadow: 0 2px 6px rgba(0,0,0,1); }
 
-/* ════════════════ EFFETTO SPECIALE: GLITTER FLUTTUANTI ════════════════ */
+/* POLVERE DI STELLE / GLITTER FLUTTUANTI SULL'INVITO */
 #sparkles-container { position: fixed; inset: 0; pointer-events: none; z-index: 5; overflow: hidden; }
-.sparkle { position: absolute; background: radial-gradient(circle, rgba(212,175,55,0.9) 0%, transparent 70%); border-radius: 50%; animation: glitterFloat 7s infinite linear; }
+.sparkle { position: absolute; background: radial-gradient(circle, rgba(212,175,55,0.7) 0%, transparent 70%); border-radius: 50%; animation: glitterFloat 7s infinite linear; }
 @keyframes glitterFloat {
-  0% { transform: translateY(105vh) rotate(0deg) scale(0.3); opacity: 0; }
-  30% { opacity: 0.8; }
-  90% { opacity: 0.5; }
-  100% { transform: translateY(-10vh) rotate(360deg) scale(1); opacity: 0; }
+  0% { transform: translateY(105vh) scale(0.3); opacity: 0; }
+  20% { opacity: 0.7; }
+  80% { opacity: 0.4; }
+  100% { transform: translateY(-10vh) scale(0.8); opacity: 0; }
 }
 
-/* CONTENITORE PRINCIPALE INVITO (SFONDO BIANCO ASSOLUTO) */
+/* INVITO (SFONDO BIANCO ASSOLUTO) */
 #invitation-screen { 
   position: relative; width: 100%; height: 100vh; overflow-y: scroll; overflow-x: hidden; z-index: 10; background: var(--pure-white); 
   -webkit-overflow-scrolling: touch; display: block;
@@ -52,21 +52,18 @@ html, body { width: 100%; height: 100%; background: var(--pure-white); font-fami
 }
 .page-two-separator { border-top: 1px double rgba(170, 124, 17, 0.2); }
 
-/* ════════════════ CORNICE ELFICA DI ALTA SARTORIA (CSS BI-COLORE) ════════════════ */
+/* CORNICE STRUTTURATA RIGIDA IN CSS */
 .elvish-luxury-frame {
   position: relative;
   width: min(450px, 100%);
   padding: 55px 30px;
   background: var(--pure-white);
-  
-  /* Doppio bordo intrecciato foglia e oro antico */
   border: 3px solid var(--gold-light);
   outline: 8px solid var(--pure-white);
-  box-shadow: 0 0 0 2px var(--green-theme), 0 15px 40px rgba(0,0,0,0.04);
+  box-shadow: 0 0 0 2px var(--green-theme), 0 15px 40px rgba(0,0,0,0.03);
   margin: 10px 0;
 }
 
-/* Fregi angolari grafici elfici */
 .frame-decor {
   position: absolute; width: 20px; height: 20px; font-size: 18px; color: var(--gold-dark);
   display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif;
@@ -78,12 +75,12 @@ html, body { width: 100%; height: 100%; background: var(--pure-white); font-fami
 
 .page-content { display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; width: 100%; }
 
-/* DETTAGLI GRAFICI DEI TESTI */
+/* TIPOGRAFIA */
 .name-script { font-family: 'Great Vibes', cursive; color: var(--ink-dark); font-weight: 400; }
 .name-one, .name-two { font-size: clamp(46px, 10vw, 68px); line-height: 1.1; }
 .gold-shine { background: linear-gradient(135deg, var(--ink-dark) 60%, var(--gold-dark) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .ampersand-large { font-family: 'IM Fell English', serif; font-size: 38px; margin: -10px 0; color: var(--green-theme); font-style: italic; }
-.announce-text { font-family: 'IM Fell English', serif; font-style: italic; font-size: 16.5px; color: var(--ink-muted); letter-spacing: 0.3px; }
+.announce-text { font-family: 'IM Fell English', serif; font-style: italic; font-size: 16.5px; color: var(--ink-muted); }
 
 .date-block { display: flex; flex-direction: column; align-items: center; }
 .month-text { font-family: 'Dancing Script', cursive; font-size: 36px; font-weight: 700; color: var(--ink-dark); }
@@ -96,69 +93,112 @@ html, body { width: 100%; height: 100%; background: var(--pure-white); font-fami
 .sub-ceremony { font-size: 19px !important; color: var(--green-theme) !important; margin-top: 2px; }
 .location-name { font-family: 'Dancing Script', cursive; font-size: 38px; font-weight: 700; color: var(--ink-dark); margin: 2px 0; }
 
-/* ════════════════ TIMELINE ORIZZONTALE FLUIDA BI-COLORE ════════════════ */
-.horizontal-timeline-wrap {
+/* ════════════════ SENTIERO ELFICO: TIMELINE VERTICALE ALLINEATA ════════════════ */
+.vertical-timeline-wrap {
   position: relative;
   width: 100%;
-  margin: 15px 0;
-  padding: 10px 0;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-.tl-main-line {
-  position: absolute; top: 41px; left: 5%; right: 5%; height: 2px;
-  background: linear-gradient(to right, var(--green-theme), var(--gold-light), var(--green-theme));
+
+/* La linea continua verticale che unisce tutto */
+.tl-vertical-line {
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  left: 72px; /* Perfettamente centrata sui nodi */
+  width: 2px;
+  background: linear-gradient(to bottom, var(--green-theme), var(--gold-light), var(--green-theme));
   z-index: 1;
 }
-.tl-horizontal-container {
-  position: relative; z-index: 2; display: flex; justify-content: space-between; width: 100%;
+
+.tl-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 2;
 }
-.tl-node-item {
-  display: flex; flex-direction: column; align-items: center; width: 18%; position: relative;
+
+/* Colonna Sinistra: Orario */
+.tl-left-time {
+  width: 55px;
+  text-align: right;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold-dark);
 }
-.tl-node-time {
-  font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; color: var(--gold-dark); margin-bottom: 5px;
+
+/* Colonna Centrale: Nodo + Icona Trasparente */
+.tl-center-node {
+  width: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 12px;
 }
 .tl-node-dot {
-  width: 8px; height: 8px; background: var(--gold-light); border-radius: 50%;
-  border: 1px solid var(--green-theme); margin-bottom: 12px;
+  width: 8px;
+  height: 8px;
+  background: var(--gold-light);
+  border-radius: 50%;
+  border: 1px solid var(--green-theme);
+  margin-bottom: 4px;
 }
-.tl-node-icon-box {
-  width: 36px; height: 36px; background: var(--pure-white); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.05); margin-bottom: 6px;
+.tl-icon-clean {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pure-white); /* Evita sovrapposizioni con la linea */
 }
-.tl-node-icon-box img {
-  max-width: 80%; max-height: 80%; object-fit: contain; background: transparent;
+.tl-icon-clean img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  background: transparent;
 }
-.tl-node-desc {
-  font-family: 'IM Fell English', serif; font-size: 9.5px; font-weight: 700;
-  color: var(--ink-dark); line-height: 1.1; text-transform: uppercase; text-align: center;
+
+/* Colonna Destra: Descrizione evento */
+.tl-right-desc {
+  flex: 1;
+  text-align: left;
+  font-family: 'IM Fell English', serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-dark);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .confirm-block { margin: 5px 0; }
 .confirm-block p { font-family: 'Dancing Script', cursive; font-size: 24px; color: var(--ink-dark); font-weight: 700; }
 
-/* REPARTO REGALO IMPERIALE PULITO */
 .gift-clean-block p {
   font-family: 'IM Fell English', serif; font-size: 12px; line-height: 1.8;
-  color: var(--ink-muted); text-align: center; letter-spacing: 0.3px; padding: 0 5px;
+  color: var(--ink-muted); text-align: center; letter-spacing: 0.3px;
 }
 
 .grazie-block { margin-top: -5px; }
 .grazie-script { font-family: 'Great Vibes', cursive; font-size: 46px; color: var(--ink-dark); }
 
-/* SEZIONE IBAN BLINDATA */
+/* IBAN CORRETTO */
 .iban-block { width: 100%; border-top: 1px solid rgba(170, 124, 17, 0.15); padding-top: 14px; }
 .iban-title { font-family: 'Cinzel', serif; font-size: 12px; color: var(--ink-muted); font-weight: 700; }
 .iban-code { font-family: 'IM Fell English', serif; font-size: 15px; color: var(--ink-dark); margin: 5px 0; word-break: break-all; font-weight: 600; letter-spacing: 0.3px; }
 .iban-name { font-family: 'Cinzel', serif; font-size: 11px; color: var(--ink-muted); }
 
-/* Animazione fluida apparizione */
 .inv-page { opacity: 0; transform: scale(0.99); animation: fadeInPage 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
 @keyframes fadeInPage { to { opacity: 1; transform: scale(1); } }
 
 @media (max-width: 480px) {
-  .elvish-luxury-frame { padding: 45px 15px; }
-  .tl-node-desc { font-size: 8px; }
-  .tl-node-time { font-size: 9px; }
-  .tl-node-icon-box { width: 30px; height: 30px; }
+  .elvish-luxury-frame { padding: 45px 18px; }
+  .tl-vertical-line { left: 62px; }
+  .tl-center-node { margin: 0 8px; }
+  .tl-left-time { width: 48px; font-size: 10px; }
+  .tl-right-desc { font-size: 11px; }
 }
