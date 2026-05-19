@@ -105,7 +105,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--dark
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.elegant-ampersand { font-family: 'Cinzel', serif; font-size: 30px; color: var(--gold-rich); margin: 5px 0; }
+.elegant-ampersand { font-family: 'Cinzel', serif; font-size: 30px; color: var(--gold-rich); margin: 5px 0; align-items: center}
 
 .date-block { display: flex; flex-direction: column; align-items: center; width: 100%; }
 .month-text { font-family: 'Dancing Script', cursive; font-size: 36px; font-weight: 700; color: var(--ink-black); }
