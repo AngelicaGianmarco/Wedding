@@ -7,13 +7,13 @@
   const glitterContainer = document.getElementById('magic-glitter-container');
   let isTriggered = false;
 
-  // GENERATORE AUTOMATICO DI GLITTER FLUTTUANTI CONTINUI SUL BACKGROUND SATINATO
+  // GENERATORE CONTINUO DI POLVERE DI FATA (GLITTER DORATI)
   function initGlitterShower(amount = 35) {
     for (let i = 0; i < amount; i++) {
       const glitter = document.createElement('div');
       glitter.classList.add('glitter-particle');
       
-      const diameter = Math.random() * 4 + 3; // Dimensioni visibili e armoniche
+      const diameter = Math.random() * 4 + 3; // Dimensione ottimale ed evidente
       glitter.style.width = `${diameter}px`;
       glitter.style.height = `${diameter}px`;
       glitter.style.left = `${Math.random() * 100}vw`;
@@ -31,20 +31,20 @@
 
     clearTimeout(globalTimer);
 
-    // Attiva la transizione fumosa lenta a sfumare regolata nel CSS
+    // Attiva la transizione lenta nebbiosa della Porta di Moria
     gateScreen.classList.add('fade-out');
 
-    // Rivela istantaneamente l'invito sottostante e inietta la polvere di stelle
+    // Rivela istantaneamente l'invito sottostante e inietta la pioggia dorata
     invScreen.classList.remove('hidden-init');
     initGlitterShower(35);
 
-    // Smonta fisicamente lo schermo protettivo dopo che la sfumatura si è completata
+    // Rimuove l'overlay protettivo dopo la fine della transizione
     setTimeout(() => {
       gateScreen.style.display = 'none';
     }, 2500);
   }
 
-  // Intercettori di interazione istantanea
+  // Eventi pronti e reattivi per smartphone e PC
   gateScreen.addEventListener('click', handleTransition);
   if (gateImg) {
     gateImg.addEventListener('click', function(e) {
@@ -56,7 +56,7 @@
   gateScreen.addEventListener('touchstart', handleTransition, { passive: true });
   gateScreen.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') handleTransition(); });
 
-  // Apertura automatica di emergenza temporizzata a 10 secondi
+  // Auto-apertura temporizzata a 10 secondi per sicurezza
   const globalTimer = setTimeout(handleTransition, 10000);
 
 })();
