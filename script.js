@@ -10,33 +10,31 @@
     if (hasTriggered) return;
     hasTriggered = true;
     
-    // Ferma il timer automatico se l'utente clicca da solo
     clearTimeout(globalTimer);
 
-    // 1. TERREMOTO SULLA PORTA DI MORIA
+    // 1. EFFETTO TERREMOTO PORTA
     gateScreen.classList.add('shake-active');
 
-    // 2. DISSOLVENZA DOPO IL SUSSULTO
+    // 2. AVVIO DISSOLVENZA DOPO IL SUSSULTO
     setTimeout(() => {
       gateScreen.classList.remove('shake-active');
       gateScreen.classList.add('fade-out');
 
-      // 3. RIMOZIONE COMPLETA E VISUALIZZAZIONE INVITO
+      // 3. APERTURA INVITO SOTTOSTANTE
       setTimeout(() => {
         gateScreen.style.display = 'none';
-        
         invScreen.classList.remove('hidden-init');
-        document.body.style.overflow = 'auto'; // Abilita lo scorrimento verticale dell'invito
+        document.body.style.overflow = 'auto'; // Sblocca scroll verticale dell'invito
         window.scrollTo(0, 0);
-      }, 1200); // durata dissolvenza
-    }, 500); // durata terremoto
+      }, 1200);
+    }, 500);
   }
 
-  // Cattura totale del clic sia sull'immagine della porta che sullo schermo intero
+  // Intercettazione sicura di clic e touch
   gateScreen.addEventListener('click', activateTransition);
   if (gateImg) {
     gateImg.addEventListener('click', function(e) {
-      e.stopPropagation(); // Evita doppie attivazioni concorrenti
+      e.stopPropagation();
       activateTransition();
     });
   }
@@ -44,7 +42,7 @@
   gateScreen.addEventListener('touchstart', activateTransition, { passive: true });
   gateScreen.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') activateTransition(); });
 
-  // APERTURA DI SICUREZZA SE NON VIENE EFFETTUATO ALCUN CLIC ENTRO 10 SECONDI
+  // Fallback di apertura automatica a 10 secondi
   const globalTimer = setTimeout(activateTransition, 10000);
 
 })();
