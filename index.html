@@ -25,13 +25,12 @@
 
   <div id="invitation-screen" class="hidden-init">
 
-    <div class="inv-page page-one">
-      <img src="cornice-elfica.png" class="elvish-frame-img" alt="Cornice" />
-      
-      <div class="page-content">
+    <div class="inv-page">
+      <div class="page-content elvish-box-frame">
         <h1 class="name-script name-one">Angelica</h1>
         <div class="ampersand-large">&amp;</div>
         <h1 class="name-script name-two">Gianmarco</h1>
+        
         <p class="announce-text">annunciano con gioia il loro matrimonio</p>
 
         <div class="date-block">
@@ -59,59 +58,61 @@
       </div>
     </div>
 
-    <div class="inv-page page-two">
-      <img src="cornice-elfica.png" class="elvish-frame-img" alt="Cornice" />
+    <div class="inv-page page-two-separator">
+      <div class="page-content elvish-box-frame">
 
-      <div class="page-content">
-
-        <div class="timeline-wrap">
-          <div class="tl-row top-row">
-            
-            <div class="tl-event top-event" style="grid-column:2">
-              <div class="tl-text-top"><strong>ORE 17.00</strong><span>COCKTAIL DI<br>BENVENUTO</span></div>
-              <div class="tl-icon-container">
-                <img src="icona-cocktail.png" alt="Cocktail" class="tl-real-icon" />
-              </div>
+        <div class="timeline-container">
+          
+          <div class="tl-item">
+            <div class="tl-icon-wrapper">
+              <img src="icona-cerimonia.png" alt="Cerimonia" class="tl-img-icon" />
             </div>
-
-            <div class="tl-event top-event" style="grid-column:4">
-              <div class="tl-text-top"><strong>ORE 22.30</strong><span>TAGLIO TORTA</span></div>
-              <div class="tl-icon-container">
-                <img src="icona-torta.png" alt="Torta" class="tl-real-icon" />
-              </div>
+            <div class="tl-details">
+              <span class="tl-time">ORE 16.00</span>
+              <span class="tl-desc">CERIMONIA</span>
             </div>
           </div>
 
-          <div class="tl-line">
-            <span class="tl-heart">✦</span>
-            <div class="tl-track">
-              <span class="tl-node"></span><span class="tl-node"></span><span class="tl-node"></span><span class="tl-node"></span><span class="tl-node"></span>
+          <div class="tl-item">
+            <div class="tl-icon-wrapper">
+              <img src="icona-cocktail.png" alt="Cocktail" class="tl-img-icon" />
             </div>
-            <span class="tl-heart">✦</span>
-          </div>
-
-          <div class="tl-row bottom-row">
-            <div class="tl-event bot-event" style="grid-column:1">
-              <div class="tl-icon-container">
-                <img src="icona-cerimonia.png" alt="Cerimonia" class="tl-real-icon" />
-              </div>
-              <div class="tl-text-bot"><strong>ORE 16.00</strong><span>CERIMONIA</span></div>
-            </div>
-
-            <div class="tl-event bot-event" style="grid-column:3">
-              <div class="tl-icon-container">
-                <img src="icona-cena.png" alt="Cena" class="tl-real-icon" />
-              </div>
-              <div class="tl-text-bot"><strong>ORE 17.30</strong><span>INIZIO BUFFET<br>E CENA</span></div>
-            </div>
-
-            <div class="tl-event bot-event" style="grid-column:5">
-              <div class="tl-icon-container">
-                <img src="icona-festa.png" alt="Festa" class="tl-real-icon" />
-              </div>
-              <div class="tl-text-bot"><strong>ORE 23.00</strong><span>SI BALLA!</span></div>
+            <div class="tl-details">
+              <span class="tl-time">ORE 17.00</span>
+              <span class="tl-desc">COCKTAIL DI BENVENUTO</span>
             </div>
           </div>
+
+          <div class="tl-item">
+            <div class="tl-icon-wrapper">
+              <img src="icona-cena.png" alt="Cena" class="tl-img-icon" />
+            </div>
+            <div class="tl-details">
+              <span class="tl-time">ORE 17.30</span>
+              <span class="tl-desc">INIZIO BUFFET E CENA</span>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-icon-wrapper">
+              <img src="icona-torta.png" alt="Torta" class="tl-img-icon" />
+            </div>
+            <div class="tl-details">
+              <span class="tl-time">ORE 22.30</span>
+              <span class="tl-desc">TAGLIO TORTA</span>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-icon-wrapper">
+              <img src="icona-festa.png" alt="Festa" class="tl-img-icon" />
+            </div>
+            <div class="tl-details">
+              <span class="tl-time">ORE 23.00</span>
+              <span class="tl-desc">SI BALLA!</span>
+            </div>
+          </div>
+
         </div>
 
         <div class="confirm-block">
@@ -119,11 +120,11 @@
           <p class="confirm-date">il 15 Settembre</p>
         </div>
 
-        <div class="gift-block-vertical">
-          <div class="real-heart-container">
-            <img src="cuore-fiorito.png" alt="Cuore Fiorito" class="heart-real-img" />
+        <div class="gift-section">
+          <div class="gift-heart-wrapper">
+            <img src="cuore-fiorito.png" alt="Cuore" class="gift-heart-img" />
           </div>
-          <div class="gift-text-center">
+          <div class="gift-text-box">
             <p>IL PENSIERO PIÙ BELLO CHE POSSIATE FARCI<br>È ESSERE PRESENTI AL GRANDE GIORNO.<br>QUI HA INIZIO LA NOSTRA FAVOLA!<br>TUTTAVIA SE DESIDERATE FARCI UN REGALO<br>NE SAREMMO FELICI, COSÌ CHE IL VOSTRO<br>PENSIERO CI AIUTI A REALIZZARE IL NOSTRO<br>VIAGGIO DI VITA INSIEME</p>
           </div>
         </div>
