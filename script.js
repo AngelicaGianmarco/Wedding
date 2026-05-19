@@ -10,39 +10,41 @@
     if (hasTriggered) return;
     hasTriggered = true;
     
-    // Ferma l'autostart se l'utente interagisce prima
+    // Ferma il timer automatico se l'utente clicca da solo
     clearTimeout(globalTimer);
 
-    // 1. TERREMOTO COMPLESSIVO (Applica la vibrazione visiva)
+    // 1. TERREMOTO SULLA PORTA DI MORIA
     gateScreen.classList.add('shake-active');
 
-    // 2. TRANSIZIONE IN DISSOLVENZA DOPO LO SQUASSAMENTO
+    // 2. DISSOLVENZA DOPO IL SUSSULTO
     setTimeout(() => {
       gateScreen.classList.remove('shake-active');
       gateScreen.classList.add('fade-out');
 
-      // 3. MOSTRA L'INVITO SBLOCCANDO LA PAGINA
+      // 3. RIMOZIONE COMPLETA E VISUALIZZAZIONE INVITO
       setTimeout(() => {
         gateScreen.style.display = 'none';
         
         invScreen.classList.remove('hidden-init');
-        document.body.style.overflow = 'auto'; // Ripristina lo scorrimento
+        document.body.style.overflow = 'auto'; // Abilita lo scorrimento verticale dell'invito
         window.scrollTo(0, 0);
-      }, 1200); // durata dissolvenza fluida
-    }, 500); // durata sottomissione scossa
+      }, 1200); // durata dissolvenza
+    }, 500); // durata terremoto
   }
 
-  // Monitoraggio totale del tocco sia su immagine che su intero schermo di blocco
+  // Cattura totale del clic sia sull'immagine della porta che sullo schermo intero
   gateScreen.addEventListener('click', activateTransition);
-  gateImg.addEventListener('click', function(e) {
-    e.stopPropagation(); // previene conflitti
-    activateTransition();
-  });
+  if (gateImg) {
+    gateImg.addEventListener('click', function(e) {
+      e.stopPropagation(); // Evita doppie attivazioni concorrenti
+      activateTransition();
+    });
+  }
   
   gateScreen.addEventListener('touchstart', activateTransition, { passive: true });
   gateScreen.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') activateTransition(); });
 
-  // APERTURA AUTOMATICA DI EMERGENZA (10 secondi)
+  // APERTURA DI SICUREZZA SE NON VIENE EFFETTUATO ALCUN CLIC ENTRO 10 SECONDI
   const globalTimer = setTimeout(activateTransition, 10000);
 
 })();
