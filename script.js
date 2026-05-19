@@ -1,21 +1,21 @@
-/* ═══════════════════════════════════
-   MORIA WEDDING — SCRIPT ORIGINALE V3
-═══════════════════════════════════ */
 (function () {
   'use strict';
 
-  /* ── CANVASES & STELLE (LOGICA NATIVA RIGIDA) ── */
+  /* ── 1. CANVASES & STELLE (LOGICA NATIVA ORIGINALE) ── */
   const canvas = document.getElementById('stars-canvas');
   const ctx = canvas.getContext('2d');
   let stars = [], W, H, raf;
 
-  function resizeCanvas() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  function resizeCanvas() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
   function createStars(n = 260) {
     stars = Array.from({length: n}, () => ({
-      x: Math.random() * W, y: Math.random() * H * .75,
-      r: Math.random() * 1.4 + .2,
+      x: Math.random() * W, y: Math.random() * H * .8,
+      r: Math.random() * 1.5 + .2,
       alpha: Math.random() * .7 + .2,
-      speed: Math.random() * .008 + .003,
+      speed: Math.random() * .006 + .001,
       phase: Math.random() * Math.PI * 2
     }));
   }
@@ -31,46 +31,73 @@
   resizeCanvas(); createStars(); drawStars();
   window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
 
-  /* ── SISTEMA DI APERTURA DELLA PORTA E SBLOCCO SCHERMO ── */
-  const doorEl    = document.getElementById('door-container');
-  const hintEl    = document.getElementById('click-hint');
-  const gateEl    = document.getElementById('gate-screen');
-  const invEl     = document.getElementById('invitation-screen');
-  let opened = false;
+  /* ── 2. LOGICA DI APERTURA E ACCESSO (CORRETTA E SICURA) ── */
+  const doorEl       = document.getElementById('door-container');
+  const archContainer = document.querySelector('.arch-container'); // Wrapper per tremolio
+  const hintEl       = document.getElementById('click-hint');
+  const gateEl       = document.getElementById('gate-screen');
+  const invEl        = document.getElementById('invitation-screen');
+  const invEffect    = document.getElementById('magic-glitter-container'); // Effetto sull'invito
+  
+  let isTransitioning = false; // Flag di sicurezza
 
-  function openDoor() {
-    if (opened) return;
-    opened = true;
+  function triggerWeddingOpening() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    
+    // Ferma timer automatici di emergenza
+    clearTimeout(autoTimerEmergency);
     hintEl.classList.add('hidden');
-    clearTimeout(autoTimer);
 
-    // Effetto tremolio dell'arco protettivo al click
-    const arch = document.querySelector('.arch-wrapper');
+    // Tremolio dell'Arco al click
     let n = 0;
-    const rum = setInterval(() => {
-      arch.style.transform = `translate(${(Math.random()-.5)*6}px,${(Math.random()-.5)*3}px)`;
-      if (++n > 10) { clearInterval(rum); arch.style.transform = ''; }
+    const rumbler = setInterval(() => {
+      archContainer.style.transform = `translate(${(Math.random()-.5)*6}px,${(Math.random()-.5)*3}px)`;
+      if (++n > 10) { clearInterval(rumbler); archContainer.style.transform = ''; }
     }, 60);
 
-    // Attivazione dell'apertura ad ante rotanti
+    // Apre le ante della porta di pietra
     doorEl.classList.add('open');
 
-    // Transizione nebbiosa fluida verso lo schermo dell'invito
+    // Dissolvenza fumosa della nebbia scura (2 secondi)
     setTimeout(() => {
       gateEl.classList.add('fade-out');
+      
+      // Rivela l'invito e inietta i glitter magici
+      invEl.classList.remove('hidden-init');
+      initGlitterShower(35); // Genera particelle sull'invito
+
       setTimeout(() => {
         gateEl.style.display = 'none';
-        cancelAnimationFrame(raf);
-        invEl.classList.remove('hidden');
+        cancelAnimationFrame(raf); // ferma stars canvas per salvare memoria
       }, 2000);
-    }, 1200);
+    }, 1300); // tempo dissolvenza
   }
 
-  // Intercettori pronti per click e touch su ogni dispositivo
-  gateEl.addEventListener('click', openDoor);
-  gateEl.addEventListener('touchstart', openDoor, { passive: true });
+  // Intercettazione su intero schermo di blocco per sicurezza tocco mobile
+  gateEl.addEventListener('click', triggerWeddingOpening);
+  gateEl.addEventListener('touchstart', triggerWeddingOpening, { passive: true });
+  gateEl.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') triggerWeddingOpening(); });
 
-  // Apertura automatica di sicurezza regolata a 12 secondi
-  const autoTimer = setTimeout(openDoor, 1200);
+  // Apertura automatica temporizzata a 12 secondi (Se l'utente non fa nulla)
+  const autoTimerEmergency = setTimeout(triggerWeddingOpening, 12000);
+
+  /* ── 3. EFFETTO SPECIALE: GLITTER FLUTTUANTI (POLVERE ELFICA) SULL'INVITO ── */
+  function initGlitterShower(amount = 35) {
+    if (!invEffect) return;
+    for (let i = 0; i < amount; i++) {
+      const glitter = document.createElement('div');
+      glitter.classList.add('glitter-particle');
+      
+      const diameter = Math.random() * 5 + 3; // Dimensioni visibili
+      glitter.style.width = `${diameter}px`;
+      glitter.style.height = `${diameter}px`;
+      glitter.style.left = `${Math.random() * 100}vw`;
+      glitter.style.animationDelay = `${Math.random() * 6}s`;
+      glitter.style.animationDuration = `${Math.random() * 5 + 5}s`;
+      
+      invEffect.appendChild(glitter);
+    }
+  }
 
 })();
