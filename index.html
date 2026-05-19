@@ -10,6 +10,8 @@
 </head>
 <body>
 
+  <div class="magic-particles-container" id="particles-container"></div>
+
   <div id="gate-screen">
     <img src="PortaMoria.jpg" alt="Porta di Moria" class="moria-bg-image" id="gate-trigger" />
     <div class="dark-overlay"></div>
@@ -23,124 +25,134 @@
     </div>
   </div>
 
-  <div id="invitation-screen">
+  <div id="invitation-screen" class="hidden-init">
 
-    <div class="inv-page">
-      <div class="elvish-box-frame">
-        <h1 class="name-script name-one">Angelica</h1>
-        <div class="ampersand-large">&amp;</div>
-        <h1 class="name-script name-two">Gianmarco</h1>
-        
-        <p class="announce-text">annunciano con gioia il loro matrimonio</p>
-
-        <div class="date-block">
-          <div class="month-text">Ottobre</div>
-          <div class="date-row">
-            <span class="d-label">Sabato</span>
-            <span class="d-num">10</span>
-            <span class="d-label">2026</span>
-          </div>
-          <div class="date-swoosh"></div>
-        </div>
-
-        <div class="ceremony-info">
-          <p>Ore 16.00 Cerimonia</p>
-          <p>Ricevimento a seguire</p>
-        </div>
-
-        <p class="presso-label">presso</p>
-        <h2 class="location-name">Valle di Badia</h2>
-
-        <div class="address-text">
-          <p>Via di Badia, 24</p>
-          <p>Cascine di Buti (Pisa)</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="inv-page page-two-separator">
-      <div class="elvish-box-frame">
-
-        <div class="timeline-container">
+    <div class="paper-page">
+      <div class="elvish-arch-frame">
+        <div class="inner-scroll-content">
           
-          <div class="tl-item">
-            <div class="tl-icon-wrapper">
-              <img src="icona-cerimonia.png" alt="Cerimonia" class="tl-img-icon" />
+          <div class="names-wrap">
+            <h1 class="name-script">Angelica</h1>
+            <div class="ampersand-center">&amp;</div>
+            <h1 class="name-script">Gianmarco</h1>
+          </div>
+          
+          <p class="announce-text">annunciano con gioia il loro matrimonio</p>
+
+          <div class="date-block">
+            <div class="month-text">Ottobre</div>
+            <div class="date-row">
+              <span class="d-label">Sabato</span>
+              <span class="d-num">10</span>
+              <span class="d-label">2026</span>
             </div>
-            <div class="tl-details">
-              <span class="tl-time">ORE 16.00</span>
-              <span class="tl-desc">CERIMONIA</span>
-            </div>
+            <div class="date-swoosh"></div>
           </div>
 
-          <div class="tl-item">
-            <div class="tl-icon-wrapper">
-              <img src="icona-cocktail.png" alt="Cocktail" class="tl-img-icon" />
-            </div>
-            <div class="tl-details">
-              <span class="tl-time">ORE 17.00</span>
-              <span class="tl-desc">COCKTAIL DI BENVENUTO</span>
-            </div>
+          <div class="ceremony-info">
+            <p class="main-time">Ore 16.00 Cerimonia</p>
+            <p class="sub-time">Ricevimento a seguire</p>
           </div>
 
-          <div class="tl-item">
-            <div class="tl-icon-wrapper">
-              <img src="icona-cena.png" alt="Cena" class="tl-img-icon" />
-            </div>
-            <div class="tl-details">
-              <span class="tl-time">ORE 17.30</span>
-              <span class="tl-desc">INIZIO BUFFET E CENA</span>
-            </div>
-          </div>
-
-          <div class="tl-item">
-            <div class="tl-icon-wrapper">
-              <img src="icona-torta.png" alt="Torta" class="tl-img-icon" />
-            </div>
-            <div class="tl-details">
-              <span class="tl-time">ORE 22.30</span>
-              <span class="tl-desc">TAGLIO TORTA</span>
-            </div>
-          </div>
-
-          <div class="tl-item">
-            <div class="tl-icon-wrapper">
-              <img src="icona-festa.png" alt="Festa" class="tl-img-icon" />
-            </div>
-            <div class="tl-details">
-              <span class="tl-time">ORE 23.00</span>
-              <span class="tl-desc">SI BALLA!</span>
+          <div class="location-block">
+            <p class="presso-label">presso</p>
+            <h2 class="location-name">Valle di Badia</h2>
+            <div class="address-text">
+              <p>Via di Badia, 24</p>
+              <p>Cascine di Buti (Pisa)</p>
             </div>
           </div>
 
         </div>
-
-        <div class="confirm-block">
-          <p>È gradita gentile conferma entro</p>
-          <p class="confirm-date">il 15 Settembre</p>
-        </div>
-
-        <div class="gift-section">
-          <div class="gift-heart-wrapper">
-            <img src="cuore-fiorito.png" alt="Cuore" class="gift-heart-img" />
-          </div>
-          <div class="gift-text-box">
-            <p>IL PENSIERO PIÙ BELLO CHE POSSIATE FARCI<br>È ESSERE PRESENTI AL GRANDE GIORNO.<br>QUI HA INIZIO LA NOSTRA FAVOLA!<br>TUTTAVIA SE DESIDERATE FARCI UN REGALO<br>NE SAREMMO FELICI, COSÌ CHE IL VOSTRO<br>PENSIERO CI AIUTI A REALIZZARE IL NOSTRO<br>VIAGGIO DI VITA INSIEME</p>
-          </div>
-        </div>
-
-        <div class="grazie-block">
-          <p class="grazie-script">Grazie di cuore</p>
-        </div>
-
-        <div class="iban-block">
-          <p class="iban-title">IBAN</p>
-          <p class="iban-code">IT52S0306921531100000008567</p>
-          <p class="iban-name">INTESTATO A ANGELICA MASI</p>
-        </div>
-
       </div>
     </div>
+
+    <div class="paper-page border-top-separator">
+      <div class="elvish-arch-frame">
+        <div class="inner-scroll-content">
+
+          <div class="timeline-box">
+            
+            <div class="tl-row">
+              <div class="tl-icon-container">
+                <img src="icona-cerimonia.png" alt="Cerimonia" class="tl-real-img" />
+              </div>
+              <div class="tl-data">
+                <strong>ORE 16.00</strong>
+                <span>CERIMONIA</span>
+              </div>
+            </div>
+
+            <div class="tl-row">
+              <div class="tl-icon-container">
+                <img src="icona-cocktail.png" alt="Cocktail" class="tl-real-img" />
+              </div>
+              <div class="tl-data">
+                <strong>ORE 17.00</strong>
+                <span>COCKTAIL DI BENVENUTO</span>
+              </div>
+            </div>
+
+            <div class="tl-row">
+              <div class="tl-icon-container">
+                <img src="icona-cena.png" alt="Cena" class="tl-real-img" />
+              </div>
+              <div class="tl-data">
+                <strong>ORE 17.30</strong>
+                <span>INIZIO BUFFET E CENA</span>
+              </div>
+            </div>
+
+            <div class="tl-row">
+              <div class="tl-icon-container">
+                <img src="icona-torta.png" alt="Torta" class="tl-real-img" />
+              </div>
+              <div class="tl-data">
+                <strong>ORE 22.30</strong>
+                <span>TAGLIO TORTA</span>
+              </div>
+            </div>
+
+            <div class="tl-row">
+              <div class="tl-icon-container">
+                <img src="icona-festa.png" alt="Festa" class="tl-real-img" />
+              </div>
+              <div class="tl-data">
+                <strong>ORE 23.00</strong>
+                <span>SI BALLA!</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="confirm-block">
+            <p>È gradita gentile conferma entro</p>
+            <p class="confirm-date">il 15 Settembre</p>
+          </div>
+
+          <div class="gift-area">
+            <div class="gift-heart-box">
+              <img src="cuore-fiorito.png" alt="Cuore Elfico" class="gift-heart-img" />
+            </div>
+            <p class="gift-paragraph">
+              IL PENSIERO PIÙ BELLO CHE POSSIATE FARCI È ESSERE PRESENTI AL GRANDE GIORNO. QUI HA INIZIO LA NOSTRA FAVOLA! TUTTAVIA SE DESIDERATE FARCI UN REGALO NE SAREMMO FELICI, COSÌ CHE IL VOSTRO PENSIERO CI AIUTI A REALIZZARE IL NOSTRO VIAGGIO DI VITA INSIEME.
+            </p>
+          </div>
+
+          <div class="grazie-block">
+            <h3 class="grazie-script">Grazie di cuore</h3>
+          </div>
+
+          <div class="iban-card">
+            <span class="iban-title">IBAN</span>
+            <p class="iban-number">IT52S0306921531100000008567</p>
+            <span class="iban-holder">INTESTATO A ANGELICA MASI</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <script src="script.js"></script>
