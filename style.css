@@ -1,18 +1,18 @@
 :root {
-  --green-forest: #1e461b;
-  --green-leaf:   #3b6e32;
-  --gold-royal:   #cfab46;
+  --green-forest: #1b4418;
+  --green-leaf:   #34682f;
+  --gold-royal:   #d4af37;
   --gold-deep:    #a37d1a;
   --ink-primary:  #111111;
   --ink-soft:     #3a3a3a;
   --pure-white:   #ffffff;
-  --bg-satin:     radial-gradient(circle, #ffffff 50%, #fffefb 100%);
+  --bg-satin:     radial-gradient(circle, #ffffff 40%, #fffdf6 100%);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { width: 100%; height: 100%; background: var(--pure-white); font-family: 'IM Fell English', Georgia, serif; }
 
-/* ════════════════ INTRO FUMOSA PORTA DI MORIA ════════════════ */
+/* ════════════════ INTRO PORTA DI MORIA REALE ════════════════ */
 #gate-screen {
   position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999;
   background: #040406; opacity: 1; filter: blur(0px);
@@ -31,49 +31,49 @@ html, body { width: 100%; height: 100%; background: var(--pure-white); font-fami
 .hint-label-text { font-family:'Cinzel',serif; font-size:11px; letter-spacing:3px; color: #ffffff; text-shadow: 0 2px 5px rgba(0,0,0,0.95); }
 .gate-quote { font-style:italic; font-size: 18px; color: #eaeaea; text-shadow: 0 2px 6px rgba(0,0,0,1); }
 
-/* ════════════════ SFUMATURE E GLITTER BACKGROUND DEL SITO ════════════════ */
+/* ════════════════ BACKGROUND CON SFUMATURE SATINATE E GLITTER DORATI ════════════════ */
 #magic-glitter-container { position: fixed; inset: 0; pointer-events: none; z-index: 3; overflow: hidden; background: var(--bg-satin); }
-.glitter-particle { position: absolute; background: radial-gradient(circle, rgba(207,171,70,0.9) 0%, transparent 80%); border-radius: 50%; animation: floatUpGlitter 7s infinite linear; }
+.glitter-particle { position: absolute; background: radial-gradient(circle, rgba(212,175,55,0.95) 0%, transparent 85%); border-radius: 50%; animation: floatUpGlitter 6.5s infinite linear; }
 @keyframes floatUpGlitter {
   0% { transform: translateY(105vh) scale(0.3); opacity: 0; }
-  20% { opacity: 0.9; }
-  80% { opacity: 0.6; }
-  100% { transform: translateY(-10vh) scale(0.9); opacity: 0; }
+  25% { opacity: 1; }
+  75% { opacity: 0.7; }
+  100% { transform: translateY(-10vh) scale(0.85); opacity: 0; }
 }
 
-/* CONTENITORE GENERALE APPARIZIONE */
+/* CONTENITORE STRUTTURA APPARIZIONE */
 #invitation-screen { position: relative; width: 100%; height: 100vh; overflow-y: scroll; overflow-x: hidden; z-index: 10; background: transparent; display: block; -webkit-overflow-scrolling: touch; }
 #invitation-screen.hidden-init { display: none !important; }
 
-.inv-page { width: 100%; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 50px 16px; background: transparent; }
-.page-two-separator { border-top: 1px double rgba(30, 70, 27, 0.15); }
+.inv-page { width: 100%; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 45px 16px; background: transparent; }
+.page-two-separator { border-top: 1px dashed rgba(27, 68, 24, 0.15); }
 
-/* ════════════════ CORNICE INTRECCIATA ELFICA CURVILINEA VERDE ════════════════ */
+/* ════════════════ CORNICE ELFICA INTRECCIATA E CURVILINEA VERDE ════════════════ */
 .elvish-celtic-frame {
-  position: relative; width: min(460px, 100%); padding: 60px 25px; background: var(--pure-white);
+  position: relative; width: min(460px, 100%); padding: 60px 22px; background: var(--pure-white);
   border: 4px solid var(--green-forest); outline: 6px solid var(--pure-white);
-  box-shadow: 0 0 0 2px var(--green-leaf), 0 20px 50px rgba(0,0,0,0.04); margin: 15px 0; border-radius: 14px;
+  box-shadow: 0 0 0 2px var(--green-leaf), 0 25px 60px rgba(0,0,0,0.04); margin: 15px 0; border-radius: 16px;
 }
 
-/* Nodi curvilinei complessi di intersecazione angolare */
-.celtic-knot { position: absolute; width: 34px; height: 34px; border: 3px solid var(--green-forest); border-radius: 50%; z-index: 2; background: var(--pure-white); }
-.celtic-knot::after { content: ''; position: absolute; inset: 3px; border: 1.5px solid var(--gold-royal); border-radius: 50%; }
-.top-l { top: -15px; left: -15px; border-bottom-color: transparent; border-right-color: transparent; }
-.top-r { top: -15px; right: -15px; border-bottom-color: transparent; border-left-color: transparent; }
-.bottom-l { bottom: -15px; left: -15px; border-top-color: transparent; border-right-color: transparent; }
-.bottom-r { bottom: -15px; right: -15px; border-top-color: transparent; border-left-color: transparent; }
+/* Nodi ad asola curvilinea negli angoli — Stile codice miniato antico */
+.celtic-knot { position: absolute; width: 36px; height: 36px; border: 3px solid var(--green-forest); border-radius: 50%; z-index: 2; background: var(--pure-white); }
+.celtic-knot::after { content: ''; position: absolute; inset: 4px; border: 1.5px solid var(--gold-royal); border-radius: 50%; }
+.top-l { top: -16px; left: -16px; border-bottom-color: transparent; border-right-color: transparent; }
+.top-r { top: -16px; right: -16px; border-bottom-color: transparent; border-left-color: transparent; }
+.bottom-l { bottom: -16px; left: -16px; border-top-color: transparent; border-right-color: transparent; }
+.bottom-r { bottom: -16px; right: -16px; border-top-color: transparent; border-left-color: transparent; }
 
 .page-content { display: flex; flex-direction: column; align-items: center; gap: 26px; text-align: center; width: 100%; }
 
-/* SPOSI IMMENSI ED ARZIGOGOLATI */
+/* TIPOGRAFIA REGALE DEI NOMI: MAESTOSA E ARZIGOGOLATA */
 .grand-names-wrap { width: 100%; margin: 5px 0; }
-.giant-name { font-family: 'Great Vibes', cursive; font-size: clamp(54px, 13vw, 76px); color: var(--ink-primary); font-weight: 400; line-height: 0.95; letter-spacing: -0.5px;
-  background: linear-gradient(135deg, var(--ink-primary) 50%, var(--gold-deep) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+.giant-name { font-family: 'Great Vibes', cursive; font-size: clamp(56px, 14vw, 78px); color: var(--ink-primary); font-weight: 400; line-height: 0.95; letter-spacing: -0.5px;
+  background: linear-gradient(135deg, var(--ink-primary) 55%, var(--gold-deep) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
-.ornament-ampersand { font-family: 'IM Fell English', serif; font-size: 44px; margin: 4px 0; color: var(--green-forest); font-style: italic; font-weight: bold; position: relative; }
-.ornament-ampersand::before, .ornament-ampersand::after { content: '༺'; position: absolute; top: 50%; transform: translateY(-50%); font-size: 22px; color: var(--gold-royal); opacity: 0.8; }
-.ornament-ampersand::before { left: -32px; }
-.ornament-ampersand::after { right: -32px; content: '༻'; }
+.ornament-ampersand { font-family: 'IM Fell English', serif; font-size: 44px; margin: 5px 0; color: var(--green-forest); font-style: italic; font-weight: bold; position: relative; }
+.ornament-ampersand::before, .ornament-ampersand::after { content: '༺'; position: absolute; top: 50%; transform: translateY(-50%); font-size: 24px; color: var(--gold-royal); opacity: 0.85; }
+.ornament-ampersand::before { left: -34px; }
+.ornament-ampersand::after { right: -34px; content: '༻'; }
 
 .announce-text { font-family: 'IM Fell English', serif; font-style: italic; font-size: 17px; color: var(--ink-soft); }
 
@@ -83,15 +83,15 @@ html, body { width: 100%; height: 100%; background: var(--pure-white); font-fami
 .d-label { font-family: 'IM Fell English', serif; font-style: italic; font-size: 21px; color: var(--ink-soft); }
 .d-num { font-family: 'Dancing Script', cursive; font-size: 60px; font-weight: 700; color: var(--ink-primary); line-height: 1; }
 
-/* Tralcio curvilineo pulito al posto del cuore */
-.elvish-braid-divider { width: 160px; height: 12px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20'%3E%3Cpath d='M0,10 Q50,0 100,10 T200,10 M0,10 Q50,20 100,10 T200,10' fill='none' stroke='%231e461b' stroke-width='2.5'/%3E%3C/svg%3E") center/contain no-repeat; margin-top: 6px; }
+/* Tralcio intrecciato a onde morbide che sostituisce il cuore */
+.elvish-braid-divider { width: 160px; height: 12px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20'%3E%3Cpath d='M0,10 Q50,0 100,10 T200,10 M0,10 Q50,20 100,10 T200,10' fill='none' stroke='%231b4418' stroke-width='2.5'/%3E%3C/svg%3E") center/contain no-repeat; margin-top: 6px; }
 
 .ceremony-info p, .presso-label, .address-text p { font-family: 'Dancing Script', cursive; font-size: 24px; color: var(--ink-soft); font-weight: 600; }
 .time-main-label { font-size: 25px !important; color: var(--ink-primary) !important; font-weight: 700 !important; }
 .sub-ceremony { font-size: 20px !important; color: var(--green-forest) !important; margin-top: 2px; }
 .location-name { font-family: 'Dancing Script', cursive; font-size: 42px; font-weight: 700; color: var(--ink-primary); margin: 2px 0; }
 
-/* ════════════════ TIMELINE ORIZZONTALE AD IMPATTO MODIFICATA ════════════════ */
+/* ════════════════ TIMELINE ORIZZONTALE AD ALTO IMPATTO RISCRITTA ════════════════ */
 .horizontal-timeline-section { position: relative; width: 100%; margin: 20px 0; padding: 15px 0; }
 .tl-connecting-rope { position: absolute; top: 52px; left: 0; right: 0; height: 3px; background: linear-gradient(to right, var(--green-forest), var(--gold-royal), var(--green-forest)); z-index: 1; }
 
@@ -100,10 +100,10 @@ html, body { width: 100%; height: 100%; background: var(--pure-white); font-fami
 
 .tl-time-badge { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; color: var(--gold-deep); margin-bottom: 8px; }
 
-/* Box Cerchio Ingrandito con SFONDO BIANCO ASSOLUTO privo di qualsiasi stacco */
+/* Box Cerchio Ingrandito con sfondo BIANCO ASSOLUTO senza stacchi visivi */
 .tl-circle-white-box {
-  width: 48px; height: 48px; background: var(--pure-white) !important; border: 2.5px solid var(--green-forest); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(30,70,27,0.15); margin-bottom: 10px;
+  width: 50px; height: 50px; background: var(--pure-white) !important; border: 2.5px solid var(--green-forest); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(27,68,24,0.15); margin-bottom: 10px;
 }
 .tl-circle-white-box img { max-width: 65%; max-height: 65%; object-fit: contain; background: transparent !important; display: block; }
 
@@ -118,20 +118,20 @@ html, body { width: 100%; height: 100%; background: var(--pure-white); font-fami
 .grazie-block { margin-top: -5px; }
 .grazie-script { font-family: 'Great Vibes', cursive; font-size: 52px; color: var(--ink-primary); }
 
-/* SEZIONE BANCO IBAN ELEGANTE */
-.iban-card-box { width: 100%; border-top: 2px double rgba(30, 70, 27, 0.2); padding-top: 18px; }
+/* BANCO IBAN STRUTTURATO */
+.iban-card-box { width: 100%; border-top: 2px double rgba(27, 68, 24, 0.2); padding-top: 18px; }
 .iban-lbl { font-family: 'Cinzel', serif; font-size: 13px; color: var(--ink-soft); font-weight: 700; letter-spacing: 1px; }
 .iban-string { font-family: 'IM Fell English', serif; font-size: 15.5px; color: var(--ink-primary); margin: 6px 0; word-break: break-all; font-weight: 600; letter-spacing: 0.5px; }
 .iban-owner { font-family: 'Cinzel', serif; font-size: 11px; color: var(--ink-soft); letter-spacing: 0.5px; }
 
-/* Animazione fluida di apertura pagina */
-.inv-page { opacity: 0; transform: scale(0.98); animation: revealWebPage 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+/* Animazione morbida rivelazione pagina */
+.inv-page { opacity: 0; transform: scale(0.98); animation: revealWebPage 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
 @keyframes revealWebPage { to { opacity: 1; transform: scale(1); } }
 
 @media (max-width: 480px) {
-  .elvish-cotic-frame { padding: 45px 12px; }
-  .tl-circle-white-box { width: 40px; height: 40px; border-width: 2px; }
+  .elvish-celtic-frame { padding: 45px 10px; }
+  .tl-circle-white-box { width: 42px; height: 42px; border-width: 2px; }
   .tl-time-badge { font-size: 9.5px; }
   .tl-label-text { font-size: 8.5px; }
-  .tl-connecting-rope { top: 46px; }
+  .tl-connecting-rope { top: 47px; }
 }
