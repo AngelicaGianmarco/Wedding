@@ -112,15 +112,15 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--dark
 .page-content { display: flex; flex-direction: column; align-items: center; gap: 30px; text-align: center; width: 100%; }
 
 /* NOMI SPOSI MAESTOSI */
-/*.grand-names-wrap { width: 100%; margin-bottom: 10px; overflow: visible;}
+.grand-names-wrap { width: 100%; margin-bottom: 10px; overflow: visible;}
 .giant-name {
   font-family: 'Great Vibes', cursive; font-size: clamp(40px, 45vw, 50px); color: var(--ink-black); line-height: 2;
   background: linear-gradient(135deg, var(--ink-black) 40%, var(--green-forest) 75%, var(--gold-rich) 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;/*
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 .elegant-ampersand { font-family: 'Great Vibes', cursive; font-size: 55px; color: var(--gold-rich); margin: -5px 5px; }
 .announce-text { font-family: 'IM Fell English', serif; font-style: italic; font-size: 24px; color: var(--ink-gray); letter-spacing: 0.3px; }
 
-.giant-name {
+/*.giant-name {
   font-family: 'Great Vibes', cursive;
   font-size: clamp(48px, 12vw, 68px);
   font-weight: 400;
@@ -132,35 +132,9 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--dark
   font-weight: 400;
   line-height: 0.9;
   
-  /* 1. Lo sfondo con i colori */
-  background: linear-gradient(120deg, #111111 0%, #143511 30%, #d4af37 50%, #2a5a24 70%, #111111 100%) !important;
-  background-size: 200% auto !important;
+ ent !important;
   
-  /* 2. Il ritaglio (SE MANCA QUESTO, LA SCRITTA DIVENTA NERA O SCOMPARE) */
-  background-clip: text !important;
-  -webkit-background-clip: text !important;
   
-  /* 3. Il colore del testo deve essere trasparente per far vedere lo sfondo */
-  color: transparent !important;
-  -webkit-text-fill-color: transparent !important;
-  
-  /* 4. L'animazione */
-  animation: elvishGlitterFlow 5s linear infinite !important;
-  -webkit-animation: elvishGlitterFlow 5s linear infinite !important;
-  
-  filter: drop-shadow(0px 1px 1px rgba(212,175,55,0.3));
-}
-
-@keyframes elvishGlitterFlow {
-  0% { background-position: 0% center; }
-  50% { background-position: 100% center; }
-  100% { background-position: 0% center; }
-}
-@-webkit-keyframes elvishGlitterFlow {
-  0% { background-position: 0% center; }
-  50% { background-position: 100% center; }
-  100% { background-position: 0% center; }
-}
 
 .date-block { display: flex; flex-direction: column; align-items: center; width: 100%; }
 .month-text { font-family: 'Dancing Script', cursive; font-size: 40px; font-weight: 700; color: var(--ink-black); }
