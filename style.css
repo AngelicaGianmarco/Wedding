@@ -119,20 +119,6 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--dark
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 .elegant-ampersand { font-family: 'Great Vibes', cursive; font-size: 55px; color: var(--gold-rich); margin: -5px 5px; }
 .announce-text { font-family: 'IM Fell English', serif; font-style: italic; font-size: 24px; color: var(--ink-gray); letter-spacing: 0.3px; }
-
-/*.giant-name {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(48px, 12vw, 68px);
-  font-weight: 400;
-  line-height: 0.9;
-  
-  .giant-name {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(48px, 12vw, 68px);
-  font-weight: 400;
-  line-height: 0.9;
-  
- ent !important;*/
   
   
 
