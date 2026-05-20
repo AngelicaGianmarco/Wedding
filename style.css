@@ -164,9 +164,9 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--dark
 .grazie-script { font-family: 'Great Vibes', cursive; font-size: 55px; color: var(--ink-black); text-align: center;}
 
 /* IBAN */
-.iban-box-footer { width: 100%; border-top: 1px double rgba(20, 53, 17, 0.2); padding-top: 20px; }
-.iban-label { font-family: 'Cinzel', serif; font-size: 13px; color: var(--ink-gray); font-weight: 700; }
-.iban-code { font-family: 'IM Fell English', serif; font-size: 16px; color: var(--ink-black); margin: 6px 0; font-weight: 600; word-break: break-all; }
+.iban-box-footer { width: 100%; border-top: 1px double rgba(20, 53, 17, 0.2); padding-top: 20px;text-align: center; }
+.iban-label { font-family: 'Cinzel', serif; font-size: 13px; color: var(--ink-gray); font-weight: 700;text-align: center; }
+.iban-code { font-family: 'IM Fell English', serif; font-size: 16px; color: var(--ink-black); margin: 6px 0; font-weight: 600; word-break: break-all; text-align: center;}
 .iban-holder { font-family: 'Cinzel', serif; font-size: 11px; color: var(--ink-gray); }
 
 @media (max-width: 480px) {
