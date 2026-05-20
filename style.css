@@ -70,10 +70,37 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--dark
   100% { transform: translateY(-10vh) scale(1); opacity: 0; }
 }
 
-#invitation-screen { position: relative; width: 100%; height: 100vh; overflow-y: scroll; overflow-x: hidden; z-index: 10; background: transparent; display: block; -webkit-overflow-scrolling: touch; }
+/*#invitation-screen { position: relative; width: 100%; height: 100vh; overflow-y: scroll; overflow-x: hidden; z-index: 10; background: transparent; display: block; -webkit-overflow-scrolling: touch; }
 #invitation-screen.hidden-init { display: none !important; }
 
-.inv-page { width: 100%; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 50px 16px; background: transparent; }
+.inv-page { width: 100%; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 50px 16px; background: transparent; } */
+#invitation-screen { 
+  position: relative; 
+  width: 100%; 
+  height: auto; /* <--- CAMBIATO da 100vh a auto */
+  min-height: 100vh; /* <--- AGGIUNTO per sicurezza */
+  overflow-y: auto; /* <--- CAMBIATO da scroll a auto per fluidità */
+  overflow-x: hidden; 
+  z-index: 10; 
+  background: transparent; 
+  display: block; 
+  -webkit-overflow-scrolling: touch; 
+}
+
+#invitation-screen.hidden-init { 
+  display: none !important; 
+}
+
+.inv-page { 
+  width: 100%; 
+  min-height: auto; /* <--- CAMBIATO da 100vh a auto per unire tutto */
+  display: flex; 
+  flex-direction: column; /* <--- AGGIUNTO per allineare tutto dall'alto al basso */
+  align-items: center; 
+  justify-content: flex-start; /* <--- CAMBIATO da center a flex-start */
+  padding: 30px 16px; /* <--- RIDOTTO leggermente il padding per stringere gli spazi */
+  background: transparent; 
+}
 
 /* CORNICE INTRECCIATA VERDE */
 .elvish-braided-luxury-frame {
