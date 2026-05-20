@@ -126,28 +126,37 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--dark
   font-weight: 400;
   line-height: 0.9;
   
-  /* Sfondo cangiante: Nero, Verde Bosco, Oro Glitter, Verde, Nero */
-  background: linear-gradient(
-    120deg, 
-    #111111 0%, 
-    #143511 25%, 
-    #d4af37 50%, 
-    #2a5a24 75%, 
-    #111111 100%
-  );
-  background-size: 200% auto; /* Serve per dare spazio all'animazione di muoversi */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  .giant-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(48px, 12vw, 68px);
+  font-weight: 400;
+  line-height: 0.9;
   
-  /* Avvia l'animazione: dura 5 secondi, è fluida (linear) e infinita */
-  animation: elvishGlitterFlow 5s linear infinite;
+  /* 1. Lo sfondo con i colori */
+  background: linear-gradient(120deg, #111111 0%, #143511 30%, #d4af37 50%, #2a5a24 70%, #111111 100%) !important;
+  background-size: 200% auto !important;
   
-  /* Un leggero riflesso che enfatizza l'effetto glitter */
+  /* 2. Il ritaglio (SE MANCA QUESTO, LA SCRITTA DIVENTA NERA O SCOMPARE) */
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  
+  /* 3. Il colore del testo deve essere trasparente per far vedere lo sfondo */
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  
+  /* 4. L'animazione */
+  animation: elvishGlitterFlow 5s linear infinite !important;
+  -webkit-animation: elvishGlitterFlow 5s linear infinite !important;
+  
   filter: drop-shadow(0px 1px 1px rgba(212,175,55,0.3));
 }
 
-/* Ecco l'animazione che sposta lo sfondo creando l'effetto cangiante e luccicante */
 @keyframes elvishGlitterFlow {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+@-webkit-keyframes elvishGlitterFlow {
   0% { background-position: 0% center; }
   50% { background-position: 100% center; }
   100% { background-position: 0% center; }
