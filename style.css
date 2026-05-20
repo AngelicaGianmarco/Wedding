@@ -99,8 +99,14 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--dark
 .date-row { display: flex; align-items: baseline; gap: 14px; }
 .d-label { font-family: 'IM Fell English', serif; font-style: italic; font-size: 22px; color: var(--ink-gray); }
 .d-num { font-family: 'Dancing Script', cursive; font-size: 68px; font-weight: 700; color: var(--ink-black); line-height: 1; }
-.braid-divider-gold { width: 180px; height: 14px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20'%3E%3Cpath d='M0,10 Q25,0 50,10 T100,10 T150,10 T200,10 M0,10 Q25,20 50,10 T100,10 T150,10 T200,10' fill='none' stroke='%23d4af37' stroke-width='2'/%3E%3C/svg%3E") center/contain no-repeat; margin-top: 10px; }
-
+/*.braid-divider-gold { width: 180px; height: 14px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20'%3E%3Cpath d='M0,10 Q25,0 50,10 T100,10 T150,10 T200,10 M0,10 Q25,20 50,10 T100,10 T150,10 T200,10' fill='none' stroke='%23d4af37' stroke-width='2'/%3E%3C/svg%3E") center/contain no-repeat; margin-top: 10px; }*/
+.braid-divider-gold { 
+  display: block;
+  width: 160px; 
+  height: 14px; 
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20'%3E%3Cpath d='M0,10 Q25,0 50,10 T100,10 T150,10 T200,10 M0,10 Q25,20 50,10 T100,10 T150,10 T200,10' fill='none' stroke='%23d4af37' stroke-width='2'/%3E%3C/svg%3E") center/contain no-repeat; 
+  margin: 20px auto; 
+}
 .ceremony-info p, .presso-label, .address-text p { font-family: 'Dancing Script', cursive; font-size: 25px; color: var(--ink-gray); font-weight: 600; }
 .time-main-label { font-size: 27px !important; color: var(--ink-black) !important; font-weight: 700 !important; }
 .sub-ceremony { color: var(--green-leaf) !important; margin-top: 2px; }
@@ -126,7 +132,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--dark
 
 .confirm-block { margin: 8px 0; }
 .confirm-block p { font-family: 'Dancing Script', cursive; font-size: 27px; color: var(--ink-black); font-weight: 700; }
-.braid2-divider-gold { width: 180px; height: 14px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20'%3E%3Cpath d='M0,10 Q25,0 50,10 T100,10 T150,10 T200,10 M0,10 Q25,20 50,10 T100,10 T150,10 T200,10' fill='none' stroke='%23d4af37' stroke-width='2'/%3E%3C/svg%3E") center/contain no-repeat; margin-top: 1px; }
+/*.braid2-divider-gold { width: 180px; height: 14px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20'%3E%3Cpath d='M0,10 Q25,0 50,10 T100,10 T150,10 T200,10 M0,10 Q25,20 50,10 T100,10 T150,10 T200,10' fill='none' stroke='%23d4af37' stroke-width='2'/%3E%3C/svg%3E") center/contain no-repeat; margin-top: 1px; }*/
 .gift-text { font-family: 'IM Fell English', serif; font-size: 13px; line-height: 1.8; color: var(--ink-gray); text-align: center; }
 .grazie-script { font-family: 'Great Vibes', cursive; font-size: 55px; color: var(--ink-black); }
 
