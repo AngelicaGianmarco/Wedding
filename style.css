@@ -6,8 +6,8 @@
   --ink-black:    #111111;
   --ink-gray:     #3a3a3a;
   --white:        #ffffff;
-  --satin-bg:     radial-gradient(circle, #ffffff 40%, #fffdf2 75% #d8be83 72%, #f8f4e2 100%);
-  /*--satin-bg: radial-gradient(circle, #f3e6c9 35%, #fffdf2 75%, #9a7b3e 100%);*/
+  /*--satin-bg:     radial-gradient(circle, #ffffff 40%, #fffdf2 75% #d8be83 72%, #f8f4e2 100%);*/
+  --satin-bg: radial-gradient(circle, #f3e6c9 35%, #fffdf2 75%, #9a7b3e 100%);
   --dark-void:    #030305;
   --glow-blue:    #a0c8ff;
 }
