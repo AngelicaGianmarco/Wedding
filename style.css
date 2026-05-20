@@ -7,7 +7,7 @@
   --ink-gray:     #3a3a3a;
   --white:        #ffffff;
   /*--satin-bg:     radial-gradient(circle, #ffffff 40%, #fffdf2 75%, #f8f4e2 100%);*/
-  --satin-bg: radial-gradient(circle, #f3e6c9 20%, #d8be83 70%, #9a7b3e 100%);
+  --satin-bg: radial-gradient(circle, #f3e6c9 30%, #d8be83 72%, #9a7b3e 100%);
   --dark-void:    #030305;
   --glow-blue:    #a0c8ff;
 }
